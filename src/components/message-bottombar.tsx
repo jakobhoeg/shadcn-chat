@@ -1,5 +1,7 @@
 import {
   FileImage,
+  Mic,
+  Paperclip,
   PlusCircle,
   SendHorizontal,
   Smile,
@@ -12,12 +14,14 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "./ui/textarea";
+import { EmojiPicker } from "./emoji-picker";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 interface MessageBottombarProps {
   sendMessage: (newMessage: Message) => void;
 }
 
-export const BottombarIcons = [{ icon: FileImage }, { icon: Smile }];
+export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
 export default function MessageBottombar({
   sendMessage,
@@ -72,7 +76,9 @@ export default function MessageBottombar({
   return (
     <div className="p-2 flex justify-between w-full items-center gap-2">
       <div className="flex">
-        <Link
+          <Popover>
+            <PopoverTrigger asChild>
+            <Link
           href="#"
           className={cn(
             buttonVariants({ variant: "ghost", size: "icon" }),
@@ -82,6 +88,50 @@ export default function MessageBottombar({
         >
           <PlusCircle size={20} className="text-muted-foreground" />
         </Link>
+            </PopoverTrigger>
+            <PopoverContent 
+            side="top"
+            className="w-full p-2">
+             {message.trim() ? (
+               <div className="flex gap-2">
+                <Link 
+              href="#"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+              )}
+              >
+                <Mic size={20} className="text-muted-foreground" />
+              </Link>
+               {BottombarIcons.map((icon, index) => (
+                 <Link
+                   key={index}
+                   href="#"
+                   className={cn(
+                     buttonVariants({ variant: "ghost", size: "icon" }),
+                     "h-9 w-9",
+                     "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                   )}
+                 >
+                   <icon.icon size={20} className="text-muted-foreground" />
+                 </Link>
+               ))}
+             </div>
+             ) : (
+              <Link 
+              href="#"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+              )}
+              >
+                <Mic size={20} className="text-muted-foreground" />
+              </Link>
+             )}
+            </PopoverContent>
+          </Popover>
         {!message.trim() && (
           <div className="flex">
             {BottombarIcons.map((icon, index) => (
@@ -104,7 +154,7 @@ export default function MessageBottombar({
       <AnimatePresence initial={false}>
         <motion.div
           key="input"
-          className="w-full "
+          className="w-full relative"
           layout
           initial={{ opacity: 0, scale: 1 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -127,6 +177,9 @@ export default function MessageBottombar({
             placeholder="Aa"
             className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
           ></Textarea>
+          <div className="absolute right-2 bottom-0.5  ">
+            <EmojiPicker onChange={(value) => setMessage(message + value)} />
+          </div>
         </motion.div>
 
         {message.trim() ? (
