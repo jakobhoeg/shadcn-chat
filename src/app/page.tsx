@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       <div className="flex justify-between max-w-5xl w-full items-center text-sm text-muted-foreground">
-      <p>Built by <a className="font-semibold" href="https://github.com/jakobhoeg/">Jakob Hoeg</a> to be used with <a className="font-semibold" href="https://ui.shadcn.com/">shadcn</a>.</p>
+      <p>Built by <a className="font-semibold" href="https://github.com/jakobhoeg/">Jakob Hoeg</a>. To be used with <a className="font-semibold" href="https://ui.shadcn.com/">shadcn</a>.</p>
       <p>Source code available on <a className="font-semibold" href="https://github.com/jakobhoeg/shadcn-chat">GitHub</a>.</p>
       </div>
     </main>
