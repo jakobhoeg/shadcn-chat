@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • 
+[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • [Usage](#Usage) • [Installation](#Installation) • [Tech stack](#Tech-stack) 
 
 </div>
 
