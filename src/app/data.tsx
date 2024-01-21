@@ -11,7 +11,7 @@ export const userData = [
             },
             {
                 id: 2,
-                avatar: '/LoggedinUser.jpg',
+                avatar: '/LoggedInUser.jpg',
                 name: 'Jakob Hoeg',
                 message: 'Hey!',
             },
@@ -23,7 +23,7 @@ export const userData = [
             },
             {
                 id: 4,
-                avatar: '/LoggedinUser.jpg',
+                avatar: '/LoggedInUser.jpg',
                 name: 'Jakob Hoeg',
                 message: 'I am good, you?',
             },
@@ -35,7 +35,7 @@ export const userData = [
             },
             {
                 id: 6,
-                avatar: '/LoggedinUser.jpg',
+                avatar: '/LoggedInUser.jpg',
                 name: 'Jakob Hoeg',
                 message: 'That is good to hear!'
             },
@@ -47,7 +47,7 @@ export const userData = [
             },
             {
                 id: 8,
-                avatar: '/LoggedinUser.jpg',
+                avatar: '/LoggedInUser.jpg',
                 name: 'Jakob Hoeg',
                 message: 'It has been good. I went for a run this morning and then had a nice breakfast. How about you?',
             },
