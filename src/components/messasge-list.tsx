@@ -26,10 +26,10 @@ export function MessageList({
   }, [messages]);
 
   return (
-    <div className="w-full overflow-auto h-full flex flex-col">
+    <div className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col">
       <div
         ref={messagesContainerRef}
-        className="w-full overflow-auto h-full flex flex-col"
+        className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col"
       >
         <AnimatePresence>
           {messages?.map((message, index) => (
