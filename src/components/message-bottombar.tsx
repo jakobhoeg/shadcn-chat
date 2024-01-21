@@ -178,7 +178,12 @@ export default function MessageBottombar({
             className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
           ></Textarea>
           <div className="absolute right-2 bottom-0.5  ">
-            <EmojiPicker onChange={(value) => setMessage(message + value)} />
+            <EmojiPicker onChange={(value) => {
+              setMessage(message + value)
+              if (inputRef.current) {
+                inputRef.current.focus();
+              }
+            }} />
           </div>
         </motion.div>
 
