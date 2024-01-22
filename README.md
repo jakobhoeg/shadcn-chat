@@ -61,6 +61,8 @@ npm run dev
 
 [shadcn-ui](https://ui.shadcn.com/) - UI component built using Radix UI and Tailwind CSS
 
-[Emoji Mart](https://github.com/missive/emoji-mart) - customizable emoji picker for the web
+[Emoji Mart](https://github.com/missive/emoji-mart) - Customizable emoji picker for the web
 
 [Framer Motion](https://www.framer.com/motion/) - Motion/animation library for React
+
+[Lucide Icons](https://lucide.dev/) - Icon library
