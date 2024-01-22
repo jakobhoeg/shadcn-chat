@@ -1,7 +1,7 @@
 [<img src="shadcn-preview.png">](https://shadcn-chat.vercel.app/)
 
 <h1 align="center">shadcn-chat</h1>
-<p align="center">Customizable and re-usable chat component that you can copy and paste into your projects. Built on top of shadcn.</p>
+<p align="center">Customizable and re-usable chat component for you to use in your projects. Built on top of shadcn.</p>
 
 <div align="center">
 
