@@ -6,9 +6,10 @@ import React from "react";
 interface ChatProps {
   messages?: Message[];
   selectedUser: UserData;
+  isMobile: boolean;
 }
 
-export function Chat({ messages, selectedUser }: ChatProps) {
+export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
   const [messagesState, setMessages] = React.useState<Message[]>(
     messages ?? []
   );
@@ -25,6 +26,7 @@ export function Chat({ messages, selectedUser }: ChatProps) {
         messages={messagesState}
         selectedUser={selectedUser}
         sendMessage={sendMessage}
+        isMobile={isMobile}
       />
     </div>
   );
