@@ -1,21 +1,21 @@
 import { Message, UserData } from "@/app/data";
 import { cn } from "@/lib/utils";
 import React, { useRef } from "react";
-import { Avatar, AvatarImage } from "./ui/avatar";
-import MessageBottombar from "./message-bottombar";
+import { Avatar, AvatarImage } from "../ui/avatar";
+import ChatBottombar from "./chat-bottombar";
 import { AnimatePresence, motion } from "framer-motion";
 
-interface MessageListProps {
+interface ChatListProps {
   messages?: Message[];
   selectedUser: UserData;
   sendMessage: (newMessage: Message) => void;
 }
 
-export function MessageList({
+export function ChatList({
   messages,
   selectedUser,
   sendMessage,
-}: MessageListProps) {
+}: ChatListProps) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -85,7 +85,7 @@ export function MessageList({
           ))}
         </AnimatePresence>
       </div>
-      <MessageBottombar sendMessage={sendMessage} />
+      <ChatBottombar sendMessage={sendMessage} />
     </div>
   );
 }

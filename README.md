@@ -20,7 +20,7 @@ You can use the source code and copy paste components into your NextJS project.
 These components in particular:
 
 ```
-/src/app/components/chat.tsx, conversation.tsx, message-topbar.tsx, message-list.tsx & message-bottombar.tsx
+/src/app/components/chat/chat-layout.tsx, chat.tsx, chat-topbar.tsx, chat-list.tsx & chat-bottombar.tsx
 ```
 
 # Installation

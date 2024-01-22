@@ -8,20 +8,20 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { cn } from "@/lib/utils";
-import { Sidebar } from "./sidebar";
-import { Conversation } from "./conversation";
+import { Sidebar } from "../sidebar";
+import { Chat } from "./chat";
 
-interface ChatProps {
+interface ChatLayoutProps {
   defaultLayout: number[] | undefined;
   defaultCollapsed?: boolean;
   navCollapsedSize: number;
 }
 
-export function Chat({
+export function ChatLayout({
   defaultLayout = [320, 480],
   defaultCollapsed = false,
   navCollapsedSize,
-}: ChatProps) {
+}: ChatLayoutProps) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
   const [selectedUser, setSelectedUser] = React.useState(userData[0]);
 
@@ -69,7 +69,7 @@ export function Chat({
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-        <Conversation
+        <Chat
           messages={selectedUser.messages}
           selectedUser={selectedUser}
         />

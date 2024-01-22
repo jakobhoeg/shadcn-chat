@@ -1,14 +1,14 @@
 import { Message, UserData } from "@/app/data";
-import MessageTopbar from "./message-topbar";
-import { MessageList } from "./messasge-list";
+import ChatTopbar from "./chat-topbar";
+import { ChatList } from "./chat-list";
 import React from "react";
 
-interface ConversationProps {
+interface ChatProps {
   messages?: Message[];
   selectedUser: UserData;
 }
 
-export function Conversation({ messages, selectedUser }: ConversationProps) {
+export function Chat({ messages, selectedUser }: ChatProps) {
   const [messagesState, setMessages] = React.useState<Message[]>(
     messages ?? []
   );
@@ -19,9 +19,9 @@ export function Conversation({ messages, selectedUser }: ConversationProps) {
 
   return (
     <div className="flex flex-col justify-between w-full h-full">
-      <MessageTopbar selectedUser={selectedUser} />
+      <ChatTopbar selectedUser={selectedUser} />
 
-      <MessageList
+      <ChatList
         messages={messagesState}
         selectedUser={selectedUser}
         sendMessage={sendMessage}

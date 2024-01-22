@@ -9,23 +9,23 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
-import { Textarea } from "./ui/textarea";
-import { EmojiPicker } from "./emoji-picker";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Textarea } from "../ui/textarea";
+import { EmojiPicker } from "../emoji-picker";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
-interface MessageBottombarProps {
+interface ChatBottombarProps {
   sendMessage: (newMessage: Message) => void;
 }
 
 export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
-export default function MessageBottombar({
+export default function ChatBottombar({
   sendMessage,
-}: MessageBottombarProps) {
+}: ChatBottombarProps) {
   const [message, setMessage] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
 

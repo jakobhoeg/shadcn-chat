@@ -1,19 +1,19 @@
 import React from 'react'
-import { Avatar, AvatarImage } from './ui/avatar'
+import { Avatar, AvatarImage } from '../ui/avatar'
 import { UserData } from '@/app/data';
 import { Info, Phone, Video } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from '../ui/button';
 
-interface MessageTopbarProps {
+interface ChatTopbarProps {
     selectedUser: UserData;
     }
     
     export const TopbarIcons = [{ icon: Phone }, { icon: Video }, { icon: Info }];
 
 
-export default function MessageTopbar({selectedUser}: MessageTopbarProps) {
+export default function ChatTopbar({selectedUser}: ChatTopbarProps) {
   return (
     <div className="w-full h-20 flex p-4 justify-between items-center border-b">
         <div className="flex items-center gap-2">

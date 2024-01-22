@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { Chat } from "@/components/chat";
+import { ChatLayout } from "@/components/chat/chat-layout";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex">
-        <Chat defaultLayout={defaultLayout} navCollapsedSize={8} />
+        <ChatLayout defaultLayout={defaultLayout} navCollapsedSize={8} />
       </div>
 
       <div className="flex justify-between max-w-5xl w-full items-center text-sm text-muted-foreground">
