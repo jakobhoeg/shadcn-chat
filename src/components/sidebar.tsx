@@ -22,9 +22,10 @@ interface SidebarProps {
     variant: "grey" | "ghost";
   }[];
   onClick?: () => void;
+  isMobile: boolean;
 }
 
-export function Sidebar({ links, isCollapsed }: SidebarProps) {
+export function Sidebar({ links, isCollapsed, isMobile }: SidebarProps) {
   return (
     <div
       data-collapsed={isCollapsed}
@@ -70,7 +71,7 @@ export function Sidebar({ links, isCollapsed }: SidebarProps) {
                     href="#"
                     className={cn(
                       buttonVariants({ variant: link.variant, size: "icon" }),
-                      "h-16 w-16",
+                      "h-11 w-11 md:h-16 md:w-16",
                       link.variant === "grey" &&
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                     )}

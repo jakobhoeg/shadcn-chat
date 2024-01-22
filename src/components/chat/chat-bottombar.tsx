@@ -19,12 +19,13 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 interface ChatBottombarProps {
   sendMessage: (newMessage: Message) => void;
+  isMobile: boolean;
 }
 
 export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
 export default function ChatBottombar({
-  sendMessage,
+  sendMessage, isMobile,
 }: ChatBottombarProps) {
   const [message, setMessage] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -92,7 +93,7 @@ export default function ChatBottombar({
             <PopoverContent 
             side="top"
             className="w-full p-2">
-             {message.trim() ? (
+             {message.trim() || isMobile ? (
                <div className="flex gap-2">
                 <Link 
               href="#"
@@ -132,7 +133,7 @@ export default function ChatBottombar({
              )}
             </PopoverContent>
           </Popover>
-        {!message.trim() && (
+        {!message.trim() && !isMobile && (
           <div className="flex">
             {BottombarIcons.map((icon, index) => (
               <Link
