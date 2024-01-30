@@ -2,8 +2,8 @@
 
 <h1 align="center">shadcn-chat</h1>
 <div align="center">
-   
-   ![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)
+
+   [![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)](https://github.com/jakobhoeg/shadcn-chat/stargazers)
    
 </div>
 
