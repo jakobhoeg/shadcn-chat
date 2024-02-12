@@ -12,7 +12,7 @@
 
 <div align="center">
 
-[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • [Usage](#Usage) • [Installation](#Installation) • [Tech stack](#Tech-stack) 
+[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • [Usage](#Usage) • [Installation](#Installation) • [Tech stack](#Tech-stack)  • [Example Project](https://github.com/jakobhoeg/nextjs-ollama-llm-ui)
 
 </div>
 
