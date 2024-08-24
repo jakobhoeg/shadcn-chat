@@ -1,19 +1,23 @@
 import fetch from 'node-fetch';
 
-const REGISTRY_URL = 'https://shadcn-chat.vercel.app/registry';
+const REGISTRY_URL = process.env.COMPONENTS_REGISTRY_URL || 'https://shadcn-chat.vercel.app/registry';
 
-export async function getRegistryIndex() {
+async function getRegistryData() {
+  console.log(`Fetching registry from: ${REGISTRY_URL}`);
   try {
     const response = await fetch(REGISTRY_URL);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Failed to fetch registry:', error);
     throw error;
   }
+}
+
+export async function getRegistryIndex() {
+  return getRegistryData();
 }
 
 export async function fetchComponent(name: string) {

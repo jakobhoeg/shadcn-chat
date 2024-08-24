@@ -1,13 +1,15 @@
 [
   {
-    "name": "test",
+    "name": "chat-topbar",
     "dependencies": [
-      "@radix-ui/react-slot"
+      "@radix-ui/react-avatar",
+      "lucide-react",
+      "@/lib/utils"
     ],
     "files": [
       {
-        "name": "test.tsx",
-        "content": "import * as React from \"react\"\nimport { Slot } from \"@radix-ui/react-slot\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n        destructive:\n          \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n        outline:\n          \"border border-input bg-background hover:bg-accent hover:text-accent-foreground\",\n        secondary:\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n        ghost: \"hover:bg-accent hover:text-accent-foreground\",\n        link: \"text-primary underline-offset-4 hover:underline\",\n      },\n      size: {\n        default: \"h-10 px-4 py-2\",\n        sm: \"h-9 rounded-md px-3\",\n        lg: \"h-11 rounded-md px-8\",\n        icon: \"h-10 w-10\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, asChild = false, ...props }, ref) => {\n    const Comp = asChild ? Slot : \"button\"\n    return (\n      <Comp\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }\n"
+        "name": "chat-topbar.tsx",
+        "content": "import React from 'react'\nimport { Avatar, AvatarImage } from '../ui/avatar'\nimport { UserData } from '@/app/data';\nimport { Info, Phone, Video } from 'lucide-react';\nimport Link from 'next/link';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '../ui/button';\n\ninterface ChatTopbarProps {\n  selectedUser: UserData;\n}\n\nexport const TopbarIcons = [{ icon: Phone }, { icon: Video }, { icon: Info }];\n\nexport default function ChatTopbar({ selectedUser }: ChatTopbarProps) {\n  return (\n    <div className=\"w-full h-20 flex p-4 justify-between items-center border-b\">\n      <div className=\"flex items-center gap-2\">\n        <Avatar className=\"flex justify-center items-center\">\n          <AvatarImage\n            src={selectedUser.avatar}\n            alt={selectedUser.name}\n            width={6}\n            height={6}\n            className=\"w-10 h-10 \"\n          />\n        </Avatar>\n        <div className=\"flex flex-col\">\n          <span className=\"font-medium\">{selectedUser.name}</span>\n          <span className=\"text-xs\">Active 2 mins ago</span>\n        </div>\n      </div>\n\n      <div>\n        {TopbarIcons.map((icon, index) => (\n          <Link\n            key={index}\n            href=\"#\"\n            className={cn(\n              buttonVariants({ variant: \"ghost\", size: \"icon\" }),\n              \"h-9 w-9\",\n              \"dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white\"\n            )}\n          >\n            <icon.icon size={20} className=\"text-muted-foreground\" />\n          </Link>\n        ))}\n      </div>\n    </div>\n  )\n}"
       }
     ],
     "type": "components:ui"
