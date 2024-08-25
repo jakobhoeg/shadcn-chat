@@ -1,5 +1,5 @@
 {
-  "name": "shadcn-chat-cli",
+  "name": "shadcn-chat-components",
   "version": "0.1.0",
   "description": "Add reusable shadcn chat components to your app.",
   "author": {
@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "shadcn-chat-cli": "./dist/index.js"
+    "shadcn-chat-components": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -25,7 +25,7 @@
     "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3000/registry/index.json node dist/index.js"
   },
   "keywords": [
-    "shadcn-chat-cli",
+    "shadcn-chat-components",
     "cli",
     "shadcn",
     "components",
