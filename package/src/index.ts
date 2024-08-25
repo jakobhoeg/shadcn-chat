@@ -7,7 +7,7 @@ const program = new Command();
 program
   .name('shadcn-chat')
   .description('CLI to add UI chat components to your project')
-  .version('1.0.0');
+  .version('0.1.0');
 
 program.addCommand(add);
 
