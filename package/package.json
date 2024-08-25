@@ -11,6 +11,9 @@
     "url": "https://github.com/jakobhoeg/shadcn-chat.git",
     "directory": "package"
   },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
