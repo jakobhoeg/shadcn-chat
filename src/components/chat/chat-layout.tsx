@@ -77,11 +77,11 @@ export function ChatLayout({
       >
         <Sidebar
           isCollapsed={isCollapsed || isMobile}
-          links={userData.map((user) => ({
+          chats={userData.map((user) => ({
             name: user.name,
             messages: user.messages ?? [],
             avatar: user.avatar,
-            variant: selectedUser.name === user.name ? "grey" : "ghost",
+            variant: selectedUser.name === user.name ? "secondary" : "ghost",
           }))}
           isMobile={isMobile}
         />
