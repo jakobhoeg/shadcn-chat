@@ -1,40 +1,40 @@
-[
-  {
-    "name": "chat-bubble",
-    "dependencies": [
-      "lucide-react"
-    ],
-    "files": [
-      {
-        "name": "chat-bubble.tsx",
-        "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\nimport { Avatar, AvatarImage, AvatarFallback } from \"@/components/ui/avatar\"\nimport MessageLoading from \"./message-loading\"\n\nconst bubbleVariants = cva(\"flex gap-2 max-w-[60%] items-end\", {\n  variants: {\n    variant: {\n      received: \"self-start\",\n      sent: \"self-end flex-row-reverse\",\n    },\n  },\n  defaultVariants: {\n    variant: \"received\"\n  }\n})\n\ninterface ChatBubbleProps extends React.HTMLAttributes<HTMLDivElement>,\n  VariantProps<typeof bubbleVariants> { }\n\nconst ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(\n  ({ className, variant, children, ...props }, ref) => (\n    <div\n      className={cn(bubbleVariants({ variant, className }))}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </div>\n  )\n)\nChatBubble.displayName = \"ChatBubble\"\n\ninterface ChatBubbleAvatarProps {\n  src?: string\n  fallback?: string\n  className?: string\n}\n\nconst ChatBubbleAvatar: React.FC<ChatBubbleAvatarProps> = ({ src, fallback, className }) => (\n  <Avatar className={className}>\n    <AvatarImage src={src} alt=\"Avatar\" />\n    <AvatarFallback>{fallback}</AvatarFallback>\n  </Avatar>\n)\n\nconst bubbleMessageVariants = cva(\"p-4\", {\n  variants: {\n    variant: {\n      received: \"bg-secondary text-secondary-foreground rounded-r-lg rounded-tl-lg\",\n      sent: \"bg-primary text-primary-foreground rounded-l-lg rounded-tr-lg\",\n    }\n  },\n  defaultVariants: {\n    variant: \"received\"\n  }\n})\n\ninterface ChatBubbleMessageProps extends React.HTMLAttributes<HTMLDivElement>,\n  VariantProps<typeof bubbleMessageVariants> {\n  isLoading?: boolean\n}\n\nconst ChatBubbleMessage = React.forwardRef<HTMLDivElement, ChatBubbleMessageProps>(\n  ({ className, variant, isLoading = false, children, ...props }, ref) => (\n    <div\n      className={cn(bubbleMessageVariants({ variant, className }))}\n      ref={ref}\n      {...props}\n    >\n      {isLoading ? (\n        <div className=\"flex items-center space-x-2\">\n          <MessageLoading />\n        </div>\n      ) : (\n        children\n      )}\n    </div>\n  )\n)\nChatBubbleMessage.displayName = \"ChatBubbleMessage\"\n\ninterface ChatBubbleTimestampProps extends React.HTMLAttributes<HTMLDivElement> {\n  timestamp: string\n}\n\nconst ChatBubbleTimestamp: React.FC<ChatBubbleTimestampProps> = ({ timestamp, className, ...props }) => (\n  <div className={cn(\"text-xs mt-2 text-right\", className)} {...props}>\n    {timestamp}\n  </div>\n)\n\nexport {\n  ChatBubble,\n  ChatBubbleAvatar,\n  ChatBubbleMessage,\n  ChatBubbleTimestamp,\n  bubbleVariants,\n  bubbleMessageVariants\n}"
-      }
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "message-loading",
-    "dependencies": [
-      "chat-bubble"
-    ],
-    "files": [
-      {
-        "name": "message-loading.tsx",
-        "content": "export default function MessageLoading() {\n  return (\n    <svg\n      width=\"24\"\n      height=\"24\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"text-foreground\"\n    >\n      <circle cx=\"4\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_qFRN\"\n          begin=\"0;spinner_OcgL.end+0.25s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"12\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          begin=\"spinner_qFRN.begin+0.1s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"20\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_OcgL\"\n          begin=\"spinner_qFRN.begin+0.2s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n    </svg>\n  )\n}"
-      }
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "chat-input",
-    "dependencies": [
-      "shadcn@latest textarea"
-    ],
-    "files": [
-      {
-        "name": "chat-input.tsx",
-        "content": "import * as React from \"react\"\nimport { Textarea } from \"@/components/ui/textarea\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ChatInputProps {\n  className?: string\n  value?: string\n  handleKeyPress?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void\n  handleInputChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void\n  placeholder?: string\n}\n\nconst ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(({ className, value, handleKeyPress, handleInputChange, placeholder, ...props }, ref) => (\n  <Textarea\n    autoComplete=\"off\"\n    value={value}\n    ref={ref}\n    onKeyDown={handleKeyPress}\n    onChange={handleInputChange}\n    name=\"message\"\n    placeholder={placeholder}\n    className={cn(\"max-h-12 px-4 py-3 bg-accent text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-full flex items-center h-16 resize-none  dark:bg-card\",\n      className)}\n    {...props}\n  />\n))\nChatInput.displayName = \"ChatInput\"\n\nexport { ChatInput }"
-      }
-    ]
-  }
-]
+{
+  "components": [
+    {
+      "name": "chat-bubble",
+      "dependencies": [
+        "message-loading"
+      ],
+      "files": [
+        {
+          "name": "chat-bubble.tsx",
+          "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\nimport { Avatar, AvatarImage, AvatarFallback } from \"@/components/ui/avatar\"\nimport MessageLoading from \"./message-loading\"\n\nconst bubbleVariants = cva(\"flex gap-2 max-w-[60%] items-end\", {\n  variants: {\n    variant: {\n      received: \"self-start\",\n      sent: \"self-end flex-row-reverse\",\n    },\n  },\n  defaultVariants: {\n    variant: \"received\"\n  }\n})\n\ninterface ChatBubbleProps extends React.HTMLAttributes<HTMLDivElement>,\n  VariantProps<typeof bubbleVariants> { }\n\nconst ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(\n  ({ className, variant, children, ...props }, ref) => (\n    <div\n      className={cn(bubbleVariants({ variant, className }))}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </div>\n  )\n)\nChatBubble.displayName = \"ChatBubble\"\n\ninterface ChatBubbleAvatarProps {\n  src?: string\n  fallback?: string\n  className?: string\n}\n\nconst ChatBubbleAvatar: React.FC<ChatBubbleAvatarProps> = ({ src, fallback, className }) => (\n  <Avatar className={className}>\n    <AvatarImage src={src} alt=\"Avatar\" />\n    <AvatarFallback>{fallback}</AvatarFallback>\n  </Avatar>\n)\n\nconst bubbleMessageVariants = cva(\"p-4\", {\n  variants: {\n    variant: {\n      received: \"bg-secondary text-secondary-foreground rounded-r-lg rounded-tl-lg\",\n      sent: \"bg-primary text-primary-foreground rounded-l-lg rounded-tr-lg\",\n    }\n  },\n  defaultVariants: {\n    variant: \"received\"\n  }\n})\n\ninterface ChatBubbleMessageProps extends React.HTMLAttributes<HTMLDivElement>,\n  VariantProps<typeof bubbleMessageVariants> {\n  isLoading?: boolean\n}\n\nconst ChatBubbleMessage = React.forwardRef<HTMLDivElement, ChatBubbleMessageProps>(\n  ({ className, variant, isLoading = false, children, ...props }, ref) => (\n    <div\n      className={cn(bubbleMessageVariants({ variant, className }))}\n      ref={ref}\n      {...props}\n    >\n      {isLoading ? (\n        <div className=\"flex items-center space-x-2\">\n          <MessageLoading />\n        </div>\n      ) : (\n        children\n      )}\n    </div>\n  )\n)\nChatBubbleMessage.displayName = \"ChatBubbleMessage\"\n\ninterface ChatBubbleTimestampProps extends React.HTMLAttributes<HTMLDivElement> {\n  timestamp: string\n}\n\nconst ChatBubbleTimestamp: React.FC<ChatBubbleTimestampProps> = ({ timestamp, className, ...props }) => (\n  <div className={cn(\"text-xs mt-2 text-right\", className)} {...props}>\n    {timestamp}\n  </div>\n)\n\nexport {\n  ChatBubble,\n  ChatBubbleAvatar,\n  ChatBubbleMessage,\n  ChatBubbleTimestamp,\n  bubbleVariants,\n  bubbleMessageVariants\n}"
+        }
+      ],
+      "type": "components:ui"
+    },
+    {
+      "name": "chat-input",
+      "dependencies": [],
+      "files": [
+        {
+          "name": "chat-input.tsx",
+          "content": "import * as React from \"react\"\nimport { Textarea } from \"@/components/ui/textarea\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ChatInputProps {\n  className?: string\n  value?: string\n  handleKeyPress?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void\n  handleInputChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void\n  placeholder?: string\n}\n\nconst ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(({ className, value, handleKeyPress, handleInputChange, placeholder, ...props }, ref) => (\n  <Textarea\n    autoComplete=\"off\"\n    value={value}\n    ref={ref}\n    onKeyDown={handleKeyPress}\n    onChange={handleInputChange}\n    name=\"message\"\n    placeholder={placeholder}\n    className={cn(\"max-h-12 px-4 py-3 bg-accent text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-full flex items-center h-16 resize-none  dark:bg-card\",\n      className)}\n    {...props}\n  />\n))\nChatInput.displayName = \"ChatInput\"\n\nexport { ChatInput }"
+        }
+      ]
+    }
+  ],
+  "hiddenComponents": [
+    {
+      "name": "message-loading",
+      "dependencies": [],
+      "files": [
+        {
+          "name": "message-loading.tsx",
+          "content": "export default function MessageLoading() {\n  return (\n    <svg\n      width=\"24\"\n      height=\"24\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"text-foreground\"\n    >\n      <circle cx=\"4\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_qFRN\"\n          begin=\"0;spinner_OcgL.end+0.25s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"12\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          begin=\"spinner_qFRN.begin+0.1s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"20\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_OcgL\"\n          begin=\"spinner_qFRN.begin+0.2s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n    </svg>\n  )\n}"
+        }
+      ],
+      "type": "components:ui"
+    }
+  ]
+}

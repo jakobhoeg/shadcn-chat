@@ -16,16 +16,36 @@ async function getRegistryData() {
 }
 
 export async function getRegistryIndex() {
-  return getRegistryData();
+  const data = await getRegistryData();
+  return data.components;
 }
 
-export async function fetchComponent(name: string) {
+async function getHiddenComponent(name: string) {
+  const data = await getRegistryData();
+  return data.hiddenComponents.find((item: any) => item.name === name);
+}
+
+export async function fetchComponent(name: string, fetchedComponents = new Set()) {
   const index = await getRegistryIndex();
-  const component = index.find((item: any) => item.name === name);
+  let component = index.find((item: any) => item.name === name);
+
+  if (!component) {
+    component = await getHiddenComponent(name);
+  }
 
   if (!component) {
     throw new Error(`Component ${name} not found in registry.`);
   }
 
-  return component;
+  fetchedComponents.add(component);
+
+  if (component.dependencies && Array.isArray(component.dependencies)) {
+    for (const depName of component.dependencies) {
+      if (!fetchedComponents.has(depName)) {
+        await fetchComponent(depName, fetchedComponents);
+      }
+    }
+  }
+
+  return Array.from(fetchedComponents);
 }
