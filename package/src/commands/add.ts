@@ -36,7 +36,7 @@ export const add = new Command()
       const component = await fetchComponent(componentName);
 
       // Create the target directory if it doesn't exist
-      const targetDir = path.join(process.cwd(), 'src', 'components', 'chat');
+      const targetDir = path.join(process.cwd(), 'src', 'components', 'ui', 'chat');
       await fs.mkdir(targetDir, { recursive: true });
 
       for (const file of component.files) {
@@ -45,7 +45,7 @@ export const add = new Command()
         console.log(`Created ${filePath}`);
       }
 
-      console.log(`Component ${componentName} has been added successfully to src/components/chat.`);
+      console.log(`Component ${componentName} has been added successfully to src/components/ui/chat.`);
 
       if (component.dependencies && component.dependencies.length > 0) {
         console.log('Don\'t forget to install the following dependencies:');
