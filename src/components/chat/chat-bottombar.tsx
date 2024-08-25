@@ -16,7 +16,7 @@ import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "../ui/textarea";
 import { EmojiPicker } from "../emoji-picker";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { ChatInput } from "./chat-input";
+import { ChatInput } from "../ui/chat/chat-input";
 
 interface ChatBottombarProps {
   sendMessage: (newMessage: Message) => void;
