@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import prompts from 'prompts';
 import { getRegistryIndex, fetchComponent } from '../utils/registry.js';
-import fs from 'fs/promises';
+import { writeComponentFiles } from '../utils/file-operations.js';
 import path from 'path';
 
 export const add = new Command()
@@ -33,23 +33,19 @@ export const add = new Command()
         return;
       }
 
-      const component = await fetchComponent(componentName);
+      const components = await fetchComponent(componentName);
 
       // Create the target directory if it doesn't exist
       const targetDir = path.join(process.cwd(), 'src', 'components', 'ui', 'chat');
-      await fs.mkdir(targetDir, { recursive: true });
 
-      for (const file of component.files) {
-        const filePath = path.join(targetDir, file.name);
-        await fs.writeFile(filePath, file.content);
-        console.log(`Created ${filePath}`);
-      }
+      await writeComponentFiles(components, targetDir);
 
-      console.log(`Component ${componentName} has been added successfully to src/components/ui/chat.`);
+      console.log(`Component ${componentName} and its dependencies have been added successfully to src/components/ui/chat.`);
 
-      if (component.dependencies && component.dependencies.length > 0) {
-        console.log('Don\'t forget to install the following dependencies:');
-        console.log(component.dependencies.join(', '));
+      const allDependencies = components.flatMap((c: any) => c.dependencies || []).filter((d, i, arr) => arr.indexOf(d) === i);
+      if (allDependencies.length > 0) {
+        console.log('The following dependencies were also installed:');
+        console.log(allDependencies.join(', '));
       }
     } catch (error: any) {
       console.error('Error:', error.message);
