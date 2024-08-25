@@ -1,6 +1,20 @@
 {
   "name": "shadcn-chat-cli",
   "version": "1.0.0",
+  "description": "Add reusable shadcn chat components to your app.",
+  "author": {
+    "name": "Jakob Hoeg Mørk",
+    "url": "https://jakobhoeg.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakobhoeg/shadcn-chat.git",
+    "directory": "package"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
   "main": "dist/index.js",
   "bin": {
     "shadcn-chat-cli": "./dist/index.js"
@@ -10,10 +24,17 @@
     "start": "npm run build",
     "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3000/registry/index.json node dist/index.js"
   },
-  "keywords": [],
-  "author": "Jakob Hoeg Mørk",
-  "license": "MIT",
-  "description": "",
+  "keywords": [
+    "shadcn-chat-cli",
+    "cli",
+    "shadcn",
+    "components",
+    "chat",
+    "react",
+    "nextjs",
+    "chat components",
+    "reusable components"
+  ],
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^12.1.0",
