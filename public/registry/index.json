@@ -11,5 +11,30 @@
       }
     ],
     "type": "components:ui"
+  },
+  {
+    "name": "message-loading",
+    "dependencies": [
+      "chat-bubble"
+    ],
+    "files": [
+      {
+        "name": "message-loading.tsx",
+        "content": "export default function MessageLoading() {\n  return (\n    <svg\n      width=\"24\"\n      height=\"24\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"text-foreground\"\n    >\n      <circle cx=\"4\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_qFRN\"\n          begin=\"0;spinner_OcgL.end+0.25s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"12\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          begin=\"spinner_qFRN.begin+0.1s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n      <circle cx=\"20\" cy=\"12\" r=\"2\" fill=\"currentColor\">\n        <animate\n          id=\"spinner_OcgL\"\n          begin=\"spinner_qFRN.begin+0.2s\"\n          attributeName=\"cy\"\n          calcMode=\"spline\"\n          dur=\"0.6s\"\n          values=\"12;6;12\"\n          keySplines=\".33,.66,.66,1;.33,0,.66,.33\"\n        />\n      </circle>\n    </svg>\n  )\n}"
+      }
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chat-input",
+    "dependencies": [
+      "shadcn@latest textarea"
+    ],
+    "files": [
+      {
+        "name": "chat-input.tsx",
+        "content": "import * as React from \"react\"\nimport { Textarea } from \"@/components/ui/textarea\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ChatInputProps {\n  className?: string\n  value?: string\n  handleKeyPress?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void\n  handleInputChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void\n  placeholder?: string\n}\n\nconst ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(({ className, value, handleKeyPress, handleInputChange, placeholder, ...props }, ref) => (\n  <Textarea\n    autoComplete=\"off\"\n    value={value}\n    ref={ref}\n    onKeyDown={handleKeyPress}\n    onChange={handleInputChange}\n    name=\"message\"\n    placeholder={placeholder}\n    className={cn(\"max-h-12 px-4 py-3 bg-accent text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-full flex items-center h-16 resize-none  dark:bg-card\",\n      className)}\n    {...props}\n  />\n))\nChatInput.displayName = \"ChatInput\"\n\nexport { ChatInput }"
+      }
+    ]
   }
 ]

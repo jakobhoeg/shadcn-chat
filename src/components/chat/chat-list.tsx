@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChatBubbleAvatar, ChatBubbleMessage, ChatBubbleTimestamp, ChatBubble } from "./chat-bubble";
 
 interface ChatListProps {
-  messages?: Message[];
+  messages: Message[];
   selectedUser: UserData;
   sendMessage: (newMessage: Message) => void;
   isMobile: boolean;
@@ -15,7 +15,7 @@ interface ChatListProps {
 const getMessageVariant = (messageName: string, selectedUserName: string) =>
   messageName !== selectedUserName ? "sent" : "received";
 
-export function ChatList({ messages = [], selectedUser, sendMessage, isMobile }: ChatListProps) {
+export function ChatList({ messages, selectedUser, sendMessage, isMobile }: ChatListProps) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
