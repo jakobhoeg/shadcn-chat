@@ -22,54 +22,54 @@ https://github.com/jakobhoeg/shadcn-chat/assets/114422072/a934f80f-1662-46f2-83b
 
 # Usage
 
-You can use the source code and copy paste components into your NextJS project. 
+For full documentation check out the: [npm docs](https://www.npmjs.com/package/shadcn-chat-cli)
 
-These components in particular:
+> [!NOTE] 
+> Some of the components rely on [shadcn-ui](https://ui.shadcn.com/docs/installation), so make sure to have it installed.
 
-```
-/src/app/components/chat/chat-layout.tsx, chat.tsx, chat-topbar.tsx, chat-list.tsx & chat-bottombar.tsx
-```
-
-# Installation
-
-If you'd like to spin up a local environment similar to the [demo](https://shadcn-chat.vercel.app/), follow these instructions:
-
-**1. Clone the repository to a directory on your pc via command prompt:**
-   
-```
-git clone https://github.com/jakobhoeg/shadcn-chat
-```
-
-**2. Open the folder:**
+To view a list of all avaialbe components run the following command:
 
 ```
-cd shadcn-chat
-```
-   
-**3. Install dependencies:**
-
-```
-npm install
+npx shadcn-chat-cli add
 ```
 
-**4. Start the development server:**
+Otherwise, install individual components by running:
 
 ```
-npm run dev
+npx shadcn-chat-cli add [component]
 ```
 
-**5. Go to [localhost](http://localhost:3000) and start playing around!**
+## Simple Example
 
-# Tech stack
+```
+import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
+import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat/chat-bubble";
+import { ChatInput } from "@/components/ui/chat/chat-input";
 
-[NextJS](https://nextjs.org/) - React Framework for the Web
+<ChatMessageList ref={}>
+  <ChatBubble variant={}>
+    <ChatBubbleAvatar src={} />
+    <ChatBubbleMessage variant={} isLoading={}>
+      {message.message}
+      {message.timestamp && (
+        <ChatBubbleTimestamp timestamp={message.timestamp} />
+      )}
+    </ChatBubbleMessage>
+  </ChatBubble>
+  <ChatInput
+    ref={}
+    onKeyDown={}
+    onChange={}
+    placeholder="Type your message here..."
+  />
+  <Button
+    type="submit" size="sm" className="ml-auto gap-1.5">
+    Send Message
+    <CornerDownLeft className="size-3.5" />
+  </Button>
+</ChatMessageList>
+```
 
-[TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+All of the above primitives are unstyled and you can add styling in any way you'd like - for instance with `className`.
 
-[shadcn-ui](https://ui.shadcn.com/) - UI component built using Radix UI and Tailwind CSS
-
-[Emoji Mart](https://github.com/missive/emoji-mart) - Customizable emoji picker for the web
-
-[Framer Motion](https://www.framer.com/motion/) - Motion/animation library for React
-
-[Lucide Icons](https://lucide.dev/) - Icon library
+For more comprehensive examples, check out the source code: [here](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/app/chatbot/page.tsx#L106-L175), [here](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/app/chatbot2/page.tsx#L106-L175) & [here](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/components/chat/chat-list.tsx#L54-L63).
