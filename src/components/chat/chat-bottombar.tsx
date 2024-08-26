@@ -71,6 +71,13 @@ export default function ChatBottombar({
     }
   };
 
+  const formattedTime = new Date().toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -86,6 +93,7 @@ export default function ChatBottombar({
             avatar: "https://images.freeimages.com/images/large-previews/971/basic-shape-avatar-1632968.jpg?fmt=webp&h=350",
             name: "Jane Doe",
             message: "Awesome! I am just chilling outside.",
+            timestamp: formattedTime,
           }
         ]);
         setisLoading(false);

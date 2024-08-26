@@ -9,7 +9,6 @@ export async function writeComponentFiles(components: any[], customPath?: string
       const filePath = path.join(baseDir, file.name);
       await fs.ensureDir(path.dirname(filePath));
       await fs.writeFile(filePath, file.content);
-      console.log(`Created ${filePath}`);
     }
   }
 }
