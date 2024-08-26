@@ -1,3 +1,37 @@
+export const Users: User[] = [
+    {
+        id: 1,
+        avatar: '/User1.png',
+        messages: [],
+        name: 'Jane Doe',
+    },
+    {
+        id: 2,
+        avatar: '/User2.png',
+        messages: [],
+        name: 'John Doe',
+    },
+    {
+        id: 3,
+        avatar: '/User3.png',
+        messages: [],
+        name: 'Elizabeth Smith',
+    },
+    {
+        id: 4,
+        avatar: '/User4.png',
+        messages: [],
+        name: 'John Smith',
+    },
+    {
+        id: 5,
+        avatar: '/LoggedInUser.jpg',
+        messages: [],
+        name: 'Jakob Hoeg',
+    }
+];
+
+
 export const userData: User[] = [
     {
         id: 1,
@@ -88,6 +122,74 @@ export const userData: User[] = [
     }
 ];
 
+export const ChatBotMessages: Message[] = [
+    {
+        id: 1,
+        avatar: '/chatbot.svg',
+        name: 'ChatBot',
+        message: 'Hello! How can I help you today?',
+        timestamp: '10:00 AM',
+        role: 'ai',
+    },
+    {
+        id: 2,
+        avatar: '/LoggedInUser.jpg',
+        name: 'Jakob Hoeg',
+        message: 'I need help with my order',
+        timestamp: '10:01 AM',
+        role: 'user',
+    },
+    {
+        id: 3,
+        avatar: '/chatbot.svg',
+        name: 'ChatBot',
+        message: 'Sure! Please provide me with your order number',
+        timestamp: '10:02 AM',
+        role: 'ai',
+    },
+    {
+        id: 4,
+        avatar: '/LoggedInUser.jpg',
+        name: 'Jakob Hoeg',
+        message: '123456',
+        timestamp: '10:03 AM',
+        role: 'user',
+    },
+    {
+        id: 5,
+        avatar: '/chatbot.svg',
+        name: 'ChatBot',
+        message: 'Thank you! One moment please while I look up your order',
+        timestamp: '10:04 AM',
+        role: 'ai',
+    },
+    {
+        id: 6,
+        avatar: '/chatbot.svg',
+        name: 'ChatBot',
+        message: 'I have found your order. It is currently being processed and will be shipped out soon.',
+        timestamp: '10:05 AM',
+        role: 'ai',
+    },
+    {
+        id: 7,
+        avatar: '/LoggedInUser.jpg',
+        name: 'Jakob Hoeg',
+        message: 'Thank you for your help!',
+        timestamp: '10:06 AM',
+        role: 'user',
+    },
+    {
+        id: 8,
+        avatar: '/chatbot.svg',
+        name: 'ChatBot',
+        message: 'You are welcome! Have a great day!',
+        isLoading: true,
+        timestamp: '10:10 AM',
+        role: 'ai',
+    }
+];
+
 export type UserData = (typeof userData)[number];
 
 export const loggedInUserData = {
@@ -105,6 +207,7 @@ export interface Message {
     message?: string;
     isLoading?: boolean;
     timestamp?: string;
+    role?: string;
 }
 
 export interface User {
