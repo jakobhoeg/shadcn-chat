@@ -46,28 +46,25 @@ import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat/chat-bubble";
 import { ChatInput } from "@/components/ui/chat/chat-input";
 
-<ChatMessageList ref={}>
-  <ChatBubble variant={}>
-    <ChatBubbleAvatar src={} />
-    <ChatBubbleMessage variant={} isLoading={}>
-      {message.message}
-      {message.timestamp && (
-        <ChatBubbleTimestamp timestamp={message.timestamp} />
-      )}
-    </ChatBubbleMessage>
+<>
+<ChatMessageList>
+  <ChatBubble>
+    <ChatBubbleAvatar />
+    <ChatBubbleMessage>
+      Message and other content here
+     </ChatBubbleMessage>
   </ChatBubble>
+</ChatMessageList>
+<div className="flex-1" />
   <ChatInput
-    ref={}
-    onKeyDown={}
-    onChange={}
     placeholder="Type your message here..."
   />
   <Button
-    type="submit" size="sm" className="ml-auto gap-1.5">
+    size="sm" className="ml-auto gap-1.5">
     Send Message
     <CornerDownLeft className="size-3.5" />
   </Button>
-</ChatMessageList>
+</>
 ```
 
 All of the above primitives are unstyled and you can add styling in any way you'd like - for instance with `className`.
