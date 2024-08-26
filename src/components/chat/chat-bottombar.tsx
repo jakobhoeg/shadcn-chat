@@ -83,7 +83,7 @@ export default function ChatBottombar({
           ...messages.slice(0, messages.length - 1),
           {
             id: messages.length + 1,
-            avatar: "/User1.png",
+            avatar: "https://images.freeimages.com/images/large-previews/971/basic-shape-avatar-1632968.jpg?fmt=webp&h=350",
             name: "Jane Doe",
             message: "Awesome! I am just chilling outside.",
           }
