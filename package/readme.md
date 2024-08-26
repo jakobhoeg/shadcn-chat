@@ -5,7 +5,7 @@ A CLI for adding **chat** components to your project.
 # Usage
 
 > [!NOTE] 
-> You'll need to have [shadcn-ui](https://ui.shadcn.com/docs/installation) installed first.
+> Some of the components rely on [shadcn-ui](https://ui.shadcn.com/docs/installation), so make sure to have it installed.
 
 # add
 
