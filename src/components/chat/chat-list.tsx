@@ -26,7 +26,7 @@ export function ChatList({ messages, selectedUser, sendMessage, isMobile }: Chat
   }, [messages]);
 
   return (
-    <div className="w-full overflow-y-auto bg-muted/20 dark:bg-muted/40 h-full flex flex-col">
+    <div className="w-full overflow-y-auto h-full flex flex-col">
       <ChatMessageList
         ref={messagesContainerRef}
       >
