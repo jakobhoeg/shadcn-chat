@@ -15,13 +15,13 @@ The add command adds a component to your project.
 To view a list of all avaialbe components run the following command:
 
 ```
-npx shadcn-chat-components add
+npx shadcn-chat-cli add
 ```
 
 Otherwise, install individual components by running:
 
 ```
-npx shadcn-chat-components add [component]
+npx shadcn-chat-cli add [component]
 ```
 
 ![image](https://github.com/user-attachments/assets/814d66b8-321a-4e0b-9431-050d73bae8c0)

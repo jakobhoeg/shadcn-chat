@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import ChatBottombar from "./chat-bottombar";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChatBubbleAvatar, ChatBubbleMessage, ChatBubbleTimestamp, ChatBubble } from "../ui/chat/chat-bubble";
+import { ChatMessageList } from "../ui/chat/chat-message-list";
 
 interface ChatListProps {
   messages: Message[];
@@ -25,10 +26,9 @@ export function ChatList({ messages, selectedUser, sendMessage, isMobile }: Chat
   }, [messages]);
 
   return (
-    <div className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col">
-      <div
+    <div className="w-full overflow-y-auto bg-muted/20 dark:bg-muted/40 h-full flex flex-col">
+      <ChatMessageList
         ref={messagesContainerRef}
-        className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col"
       >
         <AnimatePresence>
           {messages.map((message, index) => {
@@ -65,8 +65,8 @@ export function ChatList({ messages, selectedUser, sendMessage, isMobile }: Chat
             );
           })}
         </AnimatePresence>
-      </div>
-      <ChatBottombar sendMessage={sendMessage} isMobile={isMobile} />
+      </ChatMessageList>
+      <ChatBottombar isMobile={isMobile} />
     </div>
   );
 }

@@ -5,28 +5,33 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import MessageLoading from "./message-loading"
 
 // ChatBubble
-const bubbleVariants = cva(
-  "flex gap-2 max-w-[60%] items-end",
+const chatBubbleVariant = cva(
+  "flex gap-2 max-w-[60%] items-end relative",
   {
     variants: {
       variant: {
         received: "self-start",
         sent: "self-end flex-row-reverse",
       },
+      layout: {
+        "default": "",
+        "ai": "max-w-full w-full items-center"
+      }
     },
     defaultVariants: {
-      variant: "received"
+      variant: "received",
+      layout: "default"
     }
   }
 )
 
 interface ChatBubbleProps extends React.HTMLAttributes<HTMLDivElement>,
-  VariantProps<typeof bubbleVariants> { }
+  VariantProps<typeof chatBubbleVariant> { }
 
 const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
-  ({ className, variant, children, ...props }, ref) => (
+  ({ className, variant, layout, children, ...props }, ref) => (
     <div
-      className={cn(bubbleVariants({ variant, className }))}
+      className={cn(chatBubbleVariant({ variant, layout, className }))}
       ref={ref}
       {...props}
     >
@@ -51,30 +56,35 @@ const ChatBubbleAvatar: React.FC<ChatBubbleAvatarProps> = ({ src, fallback, clas
 )
 
 // ChatBubbleMessage
-const bubbleMessageVariants = cva(
+const chatBubbleMessageVariants = cva(
   "p-4",
   {
     variants: {
       variant: {
         received: "bg-secondary text-secondary-foreground rounded-r-lg rounded-tl-lg",
         sent: "bg-primary text-primary-foreground rounded-l-lg rounded-tr-lg",
+      },
+      layout: {
+        "default": "",
+        "ai": "border-t w-full rounded-none bg-transparent"
       }
     },
     defaultVariants: {
-      variant: "received"
+      variant: "received",
+      layout: "default"
     }
   }
 )
 
 interface ChatBubbleMessageProps extends React.HTMLAttributes<HTMLDivElement>,
-  VariantProps<typeof bubbleMessageVariants> {
+  VariantProps<typeof chatBubbleMessageVariants> {
   isLoading?: boolean
 }
 
 const ChatBubbleMessage = React.forwardRef<HTMLDivElement, ChatBubbleMessageProps>(
-  ({ className, variant, isLoading = false, children, ...props }, ref) => (
+  ({ className, variant, layout, isLoading = false, children, ...props }, ref) => (
     <div
-      className={cn(bubbleMessageVariants({ variant, className }))}
+      className={cn(chatBubbleMessageVariants({ variant, layout, className }))}
       ref={ref}
       {...props}
     >
@@ -106,6 +116,6 @@ export {
   ChatBubbleAvatar,
   ChatBubbleMessage,
   ChatBubbleTimestamp,
-  bubbleVariants,
-  bubbleMessageVariants
+  chatBubbleVariant,
+  chatBubbleMessageVariants
 }

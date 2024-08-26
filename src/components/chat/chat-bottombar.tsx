@@ -4,35 +4,43 @@ import {
   Paperclip,
   PlusCircle,
   SendHorizontal,
-  Smile,
   ThumbsUp,
 } from "lucide-react";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
-import { buttonVariants } from "../ui/button";
+import React, { useEffect, useRef, useState } from "react";
+import { Button, buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
-import { Textarea } from "../ui/textarea";
 import { EmojiPicker } from "../emoji-picker";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { ChatInput } from "../ui/chat/chat-input";
+import useChatStore from "@/hooks/useChatStore";
 
 interface ChatBottombarProps {
-  sendMessage: (newMessage: Message) => void;
   isMobile: boolean;
 }
 
 export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
 export default function ChatBottombar({
-  sendMessage, isMobile,
+  isMobile,
 }: ChatBottombarProps) {
   const [message, setMessage] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const setMessages = useChatStore((state) => state.setMessages);
+  const hasInitialResponse = useChatStore((state) => state.hasInitialResponse);
+  const setHasInitialResponse = useChatStore((state) => state.setHasInitialResponse);
+  const [isLoading, setisLoading] = useState(false)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
+  };
+
+  const sendMessage = (newMessage: Message) => {
+    useChatStore.setState((state) => ({
+      messages: [...state.messages, newMessage],
+    }));
   };
 
   const handleThumbsUp = () => {
@@ -62,6 +70,29 @@ export default function ChatBottombar({
       }
     }
   };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+
+    if (!hasInitialResponse) {
+      setisLoading(true);
+      setTimeout(() => {
+        setMessages((messages) => [
+          ...messages.slice(0, messages.length - 1),
+          {
+            id: messages.length + 1,
+            avatar: "https://images.freeimages.com/images/large-previews/971/basic-shape-avatar-1632968.jpg?fmt=webp&h=350",
+            name: "Jane Doe",
+            message: "Awesome! I am just chilling outside.",
+          }
+        ]);
+        setisLoading(false);
+        setHasInitialResponse(true);
+      }, 2500);
+    }
+  }, []);
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
@@ -172,8 +203,8 @@ export default function ChatBottombar({
           <ChatInput
             value={message}
             ref={inputRef}
-            handleKeyPress={handleKeyPress}
-            handleInputChange={handleInputChange}
+            onKeyDown={handleKeyPress}
+            onChange={handleInputChange}
             placeholder="Type a message..."
           />
           <div className="absolute right-4 bottom-2  ">
@@ -187,29 +218,25 @@ export default function ChatBottombar({
         </motion.div>
 
         {message.trim() ? (
-          <Link
-            href="#"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
-              "shrink-0"
-            )}
+          <Button
+            className="h-9 w-9 shrink-0"
             onClick={handleSend}
+            disabled={isLoading}
+            variant="ghost"
+            size="icon"
           >
             <SendHorizontal size={22} className="text-muted-foreground" />
-          </Link>
+          </Button>
         ) : (
-          <Link
-            href="#"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
-              "shrink-0"
-            )}
+          <Button
+            className="h-9 w-9 shrink-0"
             onClick={handleThumbsUp}
+            disabled={isLoading}
+            variant="ghost"
+            size="icon"
           >
             <ThumbsUp size={22} className="text-muted-foreground" />
-          </Link>
+          </Button>
         )}
       </AnimatePresence>
     </div>
