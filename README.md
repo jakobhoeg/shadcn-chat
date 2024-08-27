@@ -12,15 +12,15 @@
 
 <div align="center">
 
-[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • [Usage](#Usage) • [Installation](#Installation) • [Tech stack](#Tech-stack)  • [Example Project](https://github.com/jakobhoeg/nextjs-ollama-llm-ui)
+[Demo](https://shadcn-chat.vercel.app/) • [Usage](#Usage) • [Simple Example](#SimpleExample)
 
 </div>
 
-# Preview
+# Installation & usage example
 
-https://github.com/jakobhoeg/shadcn-chat/assets/114422072/a934f80f-1662-46f2-83bc-bdca45982ce6
+https://github.com/user-attachments/assets/f2e9ffcb-2fdc-483a-b4e7-ec3cf64639ff
 
-# Usage
+# Installation
 
 For full documentation check out the: [npm docs](https://www.npmjs.com/package/shadcn-chat-cli)
 
