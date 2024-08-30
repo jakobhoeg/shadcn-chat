@@ -79,7 +79,7 @@ export default function ChatSupport() {
         </div>
       </ExpandableChatHeader>
       <ExpandableChatBody>
-        <ChatMessageList ref={messagesContainerRef} className='dark:bg-muted/40 w-full h-full'>
+        <ChatMessageList ref={messagesContainerRef} className='dark:bg-muted/40'>
           <AnimatePresence>
             {messages.map((message, index) => {
               return (
@@ -123,12 +123,11 @@ export default function ChatSupport() {
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             placeholder="Type a message..."
-            className="w-full h-12"
           />
           <Button
             disabled={!inputMessage.trim()}
             type="submit" size="icon" className='absolute right-2 top-1/2 transform -translate-y-1/2 shrink-0'>
-            <Send className="h-4 w-4" />
+            <Send className="size-4" />
           </Button>
         </form>
       </ExpandableChatFooter>

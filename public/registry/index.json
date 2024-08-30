@@ -29,7 +29,7 @@
       "files": [
         {
           "name": "chat-message-list.tsx",
-          "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\";\n\ninterface ChatMessageListProps extends React.HTMLAttributes<HTMLDivElement> {\n}\n\nconst ChatMessageList = React.forwardRef<HTMLDivElement, ChatMessageListProps>(\n  ({ className, children, ...props }, ref) => (\n    <div\n      className={cn(\"flex flex-col w-full p-4 gap-6 overflow-y-auto\", className)}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </div>\n  ));\n\nChatMessageList.displayName = \"ChatMessageList\";\n\nexport { ChatMessageList };"
+          "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\";\n\ninterface ChatMessageListProps extends React.HTMLAttributes<HTMLDivElement> {\n}\n\nconst ChatMessageList = React.forwardRef<HTMLDivElement, ChatMessageListProps>(\n  ({ className, children, ...props }, ref) => (\n    <div\n      className={cn(\"flex flex-col w-full h-full p-4 gap-6 overflow-y-auto\", className)}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </div>\n  ));\n\nChatMessageList.displayName = \"ChatMessageList\";\n\nexport { ChatMessageList };"
         }
       ]
     },
