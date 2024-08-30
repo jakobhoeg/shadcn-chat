@@ -1,6 +1,6 @@
 {
   "name": "shadcn-chat-cli",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Add reusable shadcn chat components to your app.",
   "author": {
     "name": "Jakob Hoeg Mørk",

@@ -115,7 +115,7 @@ export default function ChatBottombar({
   };
 
   return (
-    <div className="p-2 flex justify-between w-full items-center gap-2">
+    <div className="px-2 py-4 flex justify-between w-full items-center gap-2">
       <div className="flex">
         <Popover>
           <PopoverTrigger asChild>
