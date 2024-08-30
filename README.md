@@ -155,4 +155,4 @@ And then use that component on all your sites by placing it in `layout.tsx` (Nex
       </body>
 ```
 
-Check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/components/chat/expandable-chat.tsx) for a better overview of the api.
+Check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/components/chat/chat-support.tsx#L61-L134) for a better overview of the api.
