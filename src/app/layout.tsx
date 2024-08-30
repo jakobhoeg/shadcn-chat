@@ -9,7 +9,7 @@ import { cookies } from "next/headers";
 import Examples from "@/components/examples";
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle";
-
+import ChatSupport from "@/components/chat/chat-support";
 
 export const metadata: Metadata = {
   title: "Shadcn Chat",
@@ -64,10 +64,15 @@ export default function RootLayout({
               {children}
             </div>
 
+            {/* Footer */}
             <div className="flex justify-between max-w-5xl w-full items-start text-xs md:text-sm text-muted-foreground ">
               <p className="max-w-[150px] sm:max-w-lg">Built by <a className="font-semibold" href="https://github.com/jakobhoeg/">Jakob Hoeg</a>. To be used with <a className="font-semibold" href="https://ui.shadcn.com/">shadcn</a>.</p>
               <p className="max-w-[150px] sm:max-w-lg text-right">Source code available on <a className="font-semibold" href="https://github.com/jakobhoeg/shadcn-chat">GitHub</a>.</p>
             </div>
+
+            {/* Chat support component */}
+            <ChatSupport />
+
           </main>
         </ThemeProvider>
       </body>
