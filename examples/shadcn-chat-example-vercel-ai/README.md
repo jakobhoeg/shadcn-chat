@@ -7,15 +7,15 @@ This example shows how to use shadcn-chat to build a modern and fully customizab
 Execute `create-next-app` with `npm`, `yarn` or `pnpm` to bootstrap this example:
 
 ```
-npx create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/nextjs-shadcn-chat-vercel-ai nextjs-shadcn-chat-vercel-ai
+npx create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai nextjs-shadcn-chat-vercel-ai
 ```
 
 ```
-yarn create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/nextjs-shadcn-chat-vercel-ai nextjs-shadcn-chat-vercel-ai
+yarn create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai nextjs-shadcn-chat-vercel-ai
 ```
 
 ```
-pnpm create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/nextjs-shadcn-chat-vercel-ai nextjs-shadcn-chat-vercel-ai
+pnpm create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai nextjs-shadcn-chat-vercel-ai
 ```
 
 Then run the example locally by following these steps:
