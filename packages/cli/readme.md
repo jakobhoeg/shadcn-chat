@@ -1,30 +1,12 @@
-[<img src="shadcn-preview.png">](https://shadcn-chat.vercel.app/)
+# shadcn-chat
 
-<h1 align="center">shadcn-chat</h1>
-<div align="center">
-
-[![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)](https://github.com/jakobhoeg/shadcn-chat/stargazers)
-
-</div>
-
-<p align="center">Customizable and re-usable chat component for you to use in your projects. Built on top of shadcn.</p>
-
-<div align="center">
-
-[Demo](https://shadcn-chat.vercel.app/) • [Usage](#Usage) • [Simple Example](#SimpleExample)
-
-</div>
-
-# Installation & usage example
-
-https://github.com/user-attachments/assets/f2e9ffcb-2fdc-483a-b4e7-ec3cf64639ff
+A CLI for adding **chat** components to your project.
 
 # Installation
 
-For full documentation check out the [npm documentation](https://www.npmjs.com/package/shadcn-chat-cli)
-
-> [!NOTE]
 > Some of the components rely on [shadcn-ui](https://ui.shadcn.com/docs/installation), so make sure to have it installed.
+
+# add
 
 Use the `add` command to add components to your project.
 
@@ -45,6 +27,10 @@ Otherwise, install individual components by running:
 ```
 npx shadcn-chat-cli add [component]
 ```
+
+![image](https://github.com/user-attachments/assets/8d9d2b33-b3ce-45f4-85b9-40b49497a9a6)
+
+The components will be installed in a subdirectory of the `components` folder: `src/components/ui/chat`
 
 # Usage & Examples
 
