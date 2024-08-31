@@ -11,7 +11,7 @@
 
 <div align="center">
 
-[Demo](https://shadcn-chat.vercel.app/) • [Installation Video Example](#Installation&usageexample) • [Installation](#Installation) • [Chat Components](#Chatcomponents) • [Expandable Chat Component](#ExpandableChatcomponent)
+[Demo](https://shadcn-chat.vercel.app/) • [Installation Video Example](#installation--usage-example) • [Installation](#Installation) • [Chat Components](#chat-components) • [Expandable Chat Component](#expandable-chat-component)
 
 </div>
 
