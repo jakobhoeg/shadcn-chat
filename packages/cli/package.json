@@ -1,0 +1,57 @@
+{
+  "name": "shadcn-chat-cli",
+  "version": "0.2.0",
+  "description": "Add reusable shadcn chat components to your app.",
+  "author": {
+    "name": "Jakob Hoeg Mørk",
+    "url": "https://jakobhoeg.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakobhoeg/shadcn-chat.git",
+    "directory": "packages/cli"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "bin": {
+    "shadcn-chat-cli": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build",
+    "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3000/registry/index.json node dist/index.js"
+  },
+  "keywords": [
+    "shadcn-chat-cli",
+    "cli",
+    "shadcn",
+    "components",
+    "chat",
+    "react",
+    "nextjs",
+    "chat components",
+    "reusable components"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "node-fetch": "^2.6.7",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "react": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20",
+    "@types/node-fetch": "^2.5.12",
+    "@types/prompts": "^2.4.9",
+    "@types/react": "^18",
+    "cross-env": "^7.0.3",
+    "typescript": "^5"
+  }
+}
