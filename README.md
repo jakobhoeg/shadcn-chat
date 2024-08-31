@@ -7,11 +7,11 @@
 
 </div>
 
-<p align="center">Customizable and re-usable chat component for you to use in your projects. Built on top of shadcn.</p>
+<p align="center">Package for adding customizable and re-usable chat components to your applications. Build beautiful chat interfaces in minutes instead of hours.</p>
 
 <div align="center">
 
-[Demo](https://shadcn-chat.vercel.app/) • [Usage](#Usage) • [Simple Example](#SimpleExample)
+[Demo](https://shadcn-chat.vercel.app/) • [Installation Video Example](#installation--usage-example) • [Installation](#Installation) • [Chat Components](#chat-components) • [Expandable Chat Component](#expandable-chat-component)
 
 </div>
 
@@ -80,7 +80,7 @@ import { ChatInput } from "@/components/ui/chat/chat-input";
 </>
 ```
 
-For more comprehensive examples, check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/app/chatbot/page.tsx#L106-L175), [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/app/chatbot2/page.tsx#L106-L175) & [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/components/chat/chat-list.tsx#L54-L63) from the source code.
+For more comprehensive examples, check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/apps/www/src/app/chatbot/page.tsx#L121-L220), [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/apps/www/src/app/chatbot2/page.tsx#L122-L221) & [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/apps/www/src/components/chat/chat-list.tsx) from the source code.
 
 ## Expandable Chat component
 
@@ -154,4 +154,4 @@ And then use that component on all your sites by placing it in `layout.tsx` (Nex
       </body>
 ```
 
-Check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/src/components/chat/chat-support.tsx#L61-L134) for a better overview of the api.
+Check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/apps/www/src/components/chat/chat-support.tsx#L73-L156) for a better overview of the api.
