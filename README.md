@@ -129,7 +129,7 @@ export default function ChatSupport() {
         <ChatInput />
         <Button
           type="submit" size="icon">
-          <Send className=size-4" />
+          <Send className="size-4" />
         </Button>
       </ExpandableChatFooter>
     </ExpandableChat>
