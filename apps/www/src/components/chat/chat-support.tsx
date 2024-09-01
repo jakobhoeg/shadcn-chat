@@ -113,9 +113,8 @@ export default function ChatSupport() {
                     variant={message.sender === "user" ? "sent" : "received"}
                   >
                     <ChatBubbleAvatar
-                      className="dark:invert"
-                      src={message.sender === "user" ? "" : "/chatbot.svg"}
-                      fallback={message.sender === "user" ? "US" : "AI"}
+                      src={message.sender === "user" ? "https://avatars.githubusercontent.com/u/114422072?s=400&u=8a176a310ca29c1578a70b1c33bdeea42bf000b4&v=4" : ""}
+                      fallback={message.sender === "user" ? "US" : "🤖"}
                     />
                     <ChatBubbleMessage
                       variant={message.sender === "user" ? "sent" : "received"}

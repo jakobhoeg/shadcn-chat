@@ -143,7 +143,7 @@ export const userData: User[] = [
 export const ChatBotMessages: Message[] = [
   {
     id: 1,
-    avatar: "/chatbot.svg",
+    avatar: "/",
     name: "ChatBot",
     message: "Hello! How can I help you today?",
     timestamp: "10:00 AM",
@@ -160,7 +160,7 @@ export const ChatBotMessages: Message[] = [
   },
   {
     id: 3,
-    avatar: "/chatbot.svg",
+    avatar: "/",
     name: "ChatBot",
     message: "Sure! Please provide me with your order number",
     timestamp: "10:02 AM",
@@ -177,7 +177,7 @@ export const ChatBotMessages: Message[] = [
   },
   {
     id: 5,
-    avatar: "/chatbot.svg",
+    avatar: "/",
     name: "ChatBot",
     message: "Thank you! One moment please while I look up your order",
     timestamp: "10:04 AM",
@@ -185,7 +185,7 @@ export const ChatBotMessages: Message[] = [
   },
   {
     id: 6,
-    avatar: "/chatbot.svg",
+    avatar: "/",
     name: "ChatBot",
     message:
       "I have found your order. It is currently being processed and will be shipped out soon.",
@@ -203,7 +203,7 @@ export const ChatBotMessages: Message[] = [
   },
   {
     id: 8,
-    avatar: "/chatbot.svg",
+    avatar: "/",
     name: "ChatBot",
     message: "You are welcome! Have a great day!",
     isLoading: true,

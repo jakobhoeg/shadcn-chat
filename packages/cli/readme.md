@@ -103,13 +103,9 @@ export default function ChatSupport() {
       </ExpandableChatHeader>
       <ExpandableChatBody>
         <ChatMessageList>
-          <ChatBubble key={message.id} variant={message.sender === 'user' ? 'sent' : 'received'}>
-            <ChatBubbleAvatar
-              className='dark:invert'
-              src={message.sender === 'user' ? '' : '/chatbot.svg'}
-              fallback={message.sender === 'user' ? 'US' : 'AI'}
-            />
-            <ChatBubbleMessage variant={message.sender === 'user' ? 'sent' : 'received'}>
+          <ChatBubble>
+            <ChatBubbleAvatar/>
+            <ChatBubbleMessage>
               {message.content}
             </ChatBubbleMessage>
           </ChatBubble>
@@ -119,11 +115,12 @@ export default function ChatSupport() {
         <ChatInput />
         <Button
           type="submit" size="icon">
-          <Send className=size-4" />
+          <Send className="size-4" />
         </Button>
       </ExpandableChatFooter>
     </ExpandableChat>
   )
+}
 ```
 
 And then use that component on all your sites by placing it in `layout.tsx` (Next.js)
