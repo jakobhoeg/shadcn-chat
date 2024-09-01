@@ -104,7 +104,7 @@ export default function Page() {
           ...messages.slice(0, messages.length - 1),
           {
             id: messages.length + 1,
-            avatar: "/chatbot.svg",
+            avatar: "",
             name: "ChatBot",
             role: "ai",
             message: "Sure! If you have any more questions, feel free to ask.",
@@ -145,11 +145,11 @@ export default function Page() {
                   <ChatBubble key={index} layout="ai">
                     <Avatar className="size-8 border">
                       <AvatarImage
-                        src={message.avatar}
+                        src={message.role === "ai" ? "" : message.avatar}
                         alt="Avatar"
                         className={message.role === "ai" ? "dark:invert" : ""}
                       />
-                      <AvatarFallback>{message.name}</AvatarFallback>
+                      <AvatarFallback>{message.role === "ai" ? "🤖" : ""}</AvatarFallback>
                     </Avatar>
                     <ChatBubbleMessage
                       layout="ai"

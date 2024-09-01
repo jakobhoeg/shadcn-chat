@@ -132,6 +132,7 @@ export default function ChatSupport() {
       </ExpandableChatFooter>
     </ExpandableChat>
   )
+}
 ```
 
 And then use that component on all your sites by placing it in `layout.tsx` (Next.js)
