@@ -3,21 +3,19 @@
 <h1 align="center">shadcn-chat</h1>
 <div align="center">
 
+![NPM Version](https://img.shields.io/npm/v/shadcn-chat-cli)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fshadcn-chat.vercel.app%2F)
 [![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)](https://github.com/jakobhoeg/shadcn-chat/stargazers)
 
 </div>
 
-<p align="center">Package for adding customizable and re-usable chat components to your applications. Build beautiful chat interfaces in minutes instead of hours.</p>
+<p align="center">Package for adding customizable and re-usable chat components to your applications. Build beautiful chat interfaces in minutes.</p>
 
-<div align="center">
+# Installation & Vercel AI SDK example
 
-[Demo](https://shadcn-chat.vercel.app/) • [Installation Video Example](#installation--usage-example) • [Installation](#installation) • [Chat Components](#chat-components) • [Expandable Chat Component](#expandable-chat-component) • [Examples](https://github.com/jakobhoeg/shadcn-chat/tree/master/examples)
+https://github.com/user-attachments/assets/b137f6a2-4565-4b4a-8a58-a8dfe0b66a7a
 
-</div>
-
-# Installation & usage example
-
-https://github.com/user-attachments/assets/f2e9ffcb-2fdc-483a-b4e7-ec3cf64639ff
+Build an AI support chatbot from scratch in less than five minutes! Find the code from the video [here](https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai).
 
 # Installation
 
