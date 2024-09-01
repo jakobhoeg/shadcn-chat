@@ -3,8 +3,8 @@
 <h1 align="center">shadcn-chat</h1>
 <div align="center">
 
-![NPM Version](https://img.shields.io/npm/v/shadcn-chat-cli)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fshadcn-chat.vercel.app%2F)
+[![NPM Version](https://img.shields.io/npm/v/shadcn-chat-cli)](https://www.npmjs.com/package/shadcn-chat-cli)
+[![Demo Website](https://img.shields.io/website?url=https%3A%2F%2Fshadcn-chat.vercel.app%2F)](https://shadcn-chat.vercel.app/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)](https://github.com/jakobhoeg/shadcn-chat/stargazers)
 
 </div>
