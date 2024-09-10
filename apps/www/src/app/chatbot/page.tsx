@@ -144,11 +144,11 @@ export default function Page() {
                   <ChatBubble key={index} variant={variant}>
                     <Avatar>
                       <AvatarImage
-                        src=''
+                        src={message.role === "ai" ? "" : message.avatar}
                         alt="Avatar"
                         className={message.role === "ai" ? "dark:invert" : ""}
                       />
-                      <AvatarFallback>🤖</AvatarFallback>
+                      <AvatarFallback>{message.role === "ai" ? "🤖" : "GG"}</AvatarFallback>
                     </Avatar>
                     <ChatBubbleMessage
                       isLoading={message.isLoading}
