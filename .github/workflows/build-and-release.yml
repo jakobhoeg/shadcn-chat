@@ -1,16 +1,19 @@
 name: Build and Release
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - main
     paths:
       - 'apps/www/public/registry/index.json'
       - 'packages/cli/**'
 
+permissions:
+  contents: write
+  pull-requests: read
+
 jobs:
   build-and-release:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -36,15 +39,12 @@ jobs:
         working-directory: packages/cli
 
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.package-version.outputs.version }}
-          release_name: Release v${{ steps.package-version.outputs.version }}
-          draft: false
-          prerelease: false
+        run: |
+          gh release create v${{ steps.package-version.outputs.version }} \
+            --title "Release v${{ steps.package-version.outputs.version }}" \
+            --generate-notes
 
       - name: Publish to npm
         run: npm publish
