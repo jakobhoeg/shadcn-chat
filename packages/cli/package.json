@@ -19,6 +19,9 @@
   "bin": {
     "shadcn-chat-cli": "./dist/index.js"
   },
+  "engines": {
+    "node": ">=20.8.1"
+  },
   "scripts": {
     "build": "tsc",
     "start": "npm run build",
