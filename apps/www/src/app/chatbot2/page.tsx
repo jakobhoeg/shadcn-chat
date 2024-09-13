@@ -4,9 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   ChatBubble,
-  ChatBubbleAvatar,
+  ChatBubbleAction,
   ChatBubbleMessage,
-  ChatBubbleTimestamp,
 } from "@/components/ui/chat/chat-bubble";
 import { ChatInput } from "@/components/ui/chat/chat-input";
 import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
@@ -163,14 +162,11 @@ export default function Page() {
                               {ChatAiIcons.map((icon, index) => {
                                 const Icon = icon.icon;
                                 return (
-                                  <Button
+                                  <ChatBubbleAction
+                                    className="size-6"
                                     key={index}
-                                    variant="outline"
-                                    size="icon"
-                                    className="size-5"
-                                  >
-                                    <Icon className="size-3" />
-                                  </Button>
+                                    icon={<Icon className="size-3" />}
+                                  />
                                 );
                               })}
                             </>

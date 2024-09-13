@@ -89,6 +89,7 @@ export const userData: User[] = [
         name: "Jakob Hoeg",
         message: "That is good to hear!",
         timestamp: "10:05 AM",
+        isLiked: true,
       },
       {
         id: 7,
@@ -231,6 +232,7 @@ export interface Message {
   isLoading?: boolean;
   timestamp?: string;
   role?: string;
+  isLiked?: boolean;
 }
 
 export interface User {
