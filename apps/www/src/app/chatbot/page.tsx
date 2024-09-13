@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   ChatBubble,
+  ChatBubbleAction,
   ChatBubbleAvatar,
   ChatBubbleMessage,
 } from "@/components/ui/chat/chat-bubble";
@@ -162,14 +163,13 @@ export default function Page() {
                               {ChatAiIcons.map((icon, index) => {
                                 const Icon = icon.icon;
                                 return (
-                                  <Button
-                                    key={index}
+                                  <ChatBubbleAction
                                     variant="outline"
-                                    size="icon"
-                                    className="size-5"
-                                  >
-                                    <Icon className="size-3" />
-                                  </Button>
+                                    className="size-6"
+                                    key={index}
+                                    icon={<Icon className="size-3" />}
+                                    onClick={() => console.log("Action " + icon.label + " clicked for message " + index)}
+                                  />
                                 );
                               })}
                             </>

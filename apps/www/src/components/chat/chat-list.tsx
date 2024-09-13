@@ -8,8 +8,12 @@ import {
   ChatBubbleMessage,
   ChatBubbleTimestamp,
   ChatBubble,
+  ChatBubbleAction,
+  ChatBubbleActionWrapper,
 } from "../ui/chat/chat-bubble";
 import { ChatMessageList } from "../ui/chat/chat-message-list";
+import { DotsVerticalIcon, HeartIcon, Share1Icon } from "@radix-ui/react-icons";
+import { Forward, Heart } from "lucide-react";
 
 interface ChatListProps {
   messages: Message[];
@@ -36,6 +40,12 @@ export function ChatList({
     }
   }, [messages]);
 
+  const actionIcons = [
+    { icon: DotsVerticalIcon, type: 'More' },
+    { icon: Forward, type: 'Like' },
+    { icon: Heart, type: 'Share' },
+  ];
+
   return (
     <div className="w-full overflow-y-auto h-full flex flex-col">
       <ChatMessageList ref={messagesContainerRef}>
@@ -61,7 +71,8 @@ export function ChatList({
                 className="flex flex-col gap-2 p-4"
               >
                 {/* Usage of ChatBubble component */}
-                <ChatBubble variant={variant}>
+                <ChatBubble variant={variant}
+                >
                   <ChatBubbleAvatar src={message.avatar} />
                   <ChatBubbleMessage
                     variant={variant}
@@ -72,6 +83,16 @@ export function ChatList({
                       <ChatBubbleTimestamp timestamp={message.timestamp} />
                     )}
                   </ChatBubbleMessage>
+                  <ChatBubbleActionWrapper variant={variant}>
+                    {actionIcons.map(({ icon: Icon, type }) => (
+                      <ChatBubbleAction
+                        className="size-7"
+                        key={type}
+                        icon={<Icon className="size-4" />}
+                        onClick={() => console.log('Action ' + type + ' clicked for message ' + index)}
+                      />
+                    ))}
+                  </ChatBubbleActionWrapper>
                 </ChatBubble>
               </motion.div>
             );
