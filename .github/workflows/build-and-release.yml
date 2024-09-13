@@ -1,20 +1,26 @@
 name: Build and Release
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - main
     paths:
       - 'apps/www/public/registry/index.json'
       - 'packages/cli/**'
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   build-and-release:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -30,24 +36,9 @@ jobs:
         run: npm run build
         working-directory: packages/cli
 
-      - name: Get version
-        id: package-version
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-        working-directory: packages/cli
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.package-version.outputs.version }}
-          release_name: Release v${{ steps.package-version.outputs.version }}
-          draft: false
-          prerelease: false
-
-      - name: Publish to npm
-        run: npm publish
-        working-directory: packages/cli
-        env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+        working-directory: packages/cli
