@@ -1,3 +1,4 @@
+// @hidden
 export default function MessageLoading() {
   return (
     <svg
