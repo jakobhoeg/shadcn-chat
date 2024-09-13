@@ -3,9 +3,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import MessageLoading from "./message-loading";
+import { Button, ButtonProps } from "../button";
 
 // ChatBubble
-const chatBubbleVariant = cva("flex gap-2 max-w-[60%] items-end relative", {
+const chatBubbleVariant = cva("flex gap-2 max-w-[60%] items-end relative group", {
   variants: {
     variant: {
       received: "self-start",
@@ -29,7 +30,7 @@ interface ChatBubbleProps
 const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
   ({ className, variant, layout, children, ...props }, ref) => (
     <div
-      className={cn(chatBubbleVariant({ variant, layout, className }))}
+      className={cn(chatBubbleVariant({ variant, layout, className }), "relative group")}
       ref={ref}
       {...props}
     >
@@ -126,6 +127,47 @@ const ChatBubbleTimestamp: React.FC<ChatBubbleTimestampProps> = ({
   </div>
 );
 
+// ChatBubbleAction
+type ChatBubbleActionProps = ButtonProps & {
+  icon: React.ReactNode;
+};
+
+const ChatBubbleAction: React.FC<ChatBubbleActionProps> = ({
+  icon,
+  onClick,
+  className,
+  variant = "ghost",
+  size = "icon",
+  ...props
+}) => (
+  <Button
+    variant={variant}
+    size={size}
+    className={className}
+    onClick={onClick}
+    {...props}
+  >
+    {icon}
+  </Button>
+);
+
+interface ChatBubbleActionWrapperProps {
+  variant: "sent" | "received";
+  className?: string;
+  children: React.ReactNode;
+}
+
+// ChatBubbleActionWrapper
+const ChatBubbleActionWrapper: React.FC<ChatBubbleActionWrapperProps> = ({ variant, className, children }) => (
+  <div className={cn(
+    "absolute top-1/2 -translate-y-1/2 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200",
+    variant === "sent" ? "-left-1 -translate-x-full flex-row-reverse" : "-right-1 translate-x-full",
+    className
+  )}>
+    {children}
+  </div>
+);
+
 export {
   ChatBubble,
   ChatBubbleAvatar,
@@ -133,4 +175,6 @@ export {
   ChatBubbleTimestamp,
   chatBubbleVariant,
   chatBubbleMessageVariants,
+  ChatBubbleAction,
+  ChatBubbleActionWrapper,
 };
