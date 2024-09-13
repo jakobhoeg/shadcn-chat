@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   build-and-release:
+    if: ${{ github.repository_owner == 'jakobhoeg' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
