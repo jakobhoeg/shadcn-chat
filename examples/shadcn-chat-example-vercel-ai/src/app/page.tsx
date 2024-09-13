@@ -4,18 +4,33 @@ import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from '@/components/ui
 import { ChatInput } from '@/components/ui/chat/chat-input'
 import { ChatMessageList } from '@/components/ui/chat/chat-message-list'
 import { Button } from '@/components/ui/button'
-import { CornerDownLeft, Mic, Paperclip, Send } from 'lucide-react'
+import { CopyIcon, CornerDownLeft, Mic, Paperclip, RefreshCcw, Send, Volume2 } from 'lucide-react'
 import { useChat } from 'ai/react'
 import { useEffect, useRef, useState } from 'react'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import CodeDisplayBlock from '@/components/code-display-block'
+import { ChatBubbleAction } from '@/components/ui/chat/chat-bubble copy'
 
+const ChatAiIcons = [
+  {
+    icon: CopyIcon,
+    label: "Copy",
+  },
+  {
+    icon: RefreshCcw,
+    label: "Refresh",
+  },
+  {
+    icon: Volume2,
+    label: "Volume",
+  },
+];
 
 export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
-  const { messages, setMessages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, setMessages, input, handleInputChange, handleSubmit, isLoading, reload } = useChat({
     onResponse(response) {
       if (response) {
         console.log(response);
@@ -53,6 +68,27 @@ export default function Home() {
     }
   }
 
+  const handleActionClick = async (action: string, messageIndex: number) => {
+    console.log('Action clicked:', action, 'Message index:', messageIndex);
+    if (action === 'Refresh') {
+      setIsGenerating(true);
+      try {
+        await reload();
+      } catch (error) {
+        console.error('Error reloading:', error);
+      } finally {
+        setIsGenerating(false);
+      }
+    }
+
+    if (action === 'Copy') {
+      const message = messages[messageIndex];
+      if (message && message.role === 'assistant') {
+        navigator.clipboard.writeText(message.content);
+      }
+    }
+  }
+
   return (
     <main className="flex h-screen w-full max-w-3xl flex-col items-center mx-auto py-6">
       <ChatMessageList ref={messagesRef}>
@@ -65,7 +101,7 @@ export default function Home() {
               <svg aria-hidden="true" height="7" viewBox="0 0 6 6" width="7" className="opacity-70"><path d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z" fill="currentColor"></path></svg>
             </a> components. It uses <a href="https://sdk.vercel.ai/" className='font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline'>Vercel AI SDK
                 <svg aria-hidden="true" height="7" viewBox="0 0 6 6" width="7" className="opacity-70"><path d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z" fill="currentColor"></path></svg>
-              </a> for the AI integration. Build chat interfaces like this at lightspeed with shadcn and shadcn-chat.</p>
+              </a> for the AI integration. Build chat interfaces like this at lightspeed with shadcn-chat.</p>
             <p className='text-muted-foreground text-sm'>Make sure to also checkout the shadcn-chat support component at the bottom right corner.</p>
           </div>
         )}
@@ -100,6 +136,27 @@ export default function Home() {
                     );
                   }
                 })}
+
+              {message.role === "assistant" && messages.length - 1 === index && (
+                <div className="flex items-center mt-1.5 gap-1">
+                  {!isGenerating && (
+                    <>
+                      {ChatAiIcons.map((icon, iconIndex) => {
+                        const Icon = icon.icon;
+                        return (
+                          <ChatBubbleAction
+                            variant="outline"
+                            className="size-5"
+                            key={iconIndex}
+                            icon={<Icon className="size-3" />}
+                            onClick={() => handleActionClick(icon.label, index)}
+                          />
+                        );
+                      })}
+                    </>
+                  )}
+                </div>
+              )}
             </ChatBubbleMessage>
           </ChatBubble>
         ))}
