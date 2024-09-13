@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'apps/www/public/registry/index.json'
       - 'packages/cli/**'
