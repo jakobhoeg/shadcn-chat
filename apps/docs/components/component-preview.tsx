@@ -25,7 +25,7 @@ export default function ComponentPreview({ component, code }: ComponentPreviewPr
               variant="outline"
               className="absolute top-4 right-4 h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground"
             />
-            <pre className="overflow-x-auto">{code}</pre>
+            <pre>{code}</pre>
           </div>
         </TabsContent>
       </Tabs>

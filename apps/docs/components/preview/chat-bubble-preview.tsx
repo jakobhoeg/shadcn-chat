@@ -4,7 +4,7 @@ import { ChatMessageList } from '../../components/ui/chat/chat-message-list'
 
 export const ChatBubblePreviewCode = `// Wrap with ChatMessageList
 <ChatMessageList>
-  // You'd typically use a list of messages here and map over them - see examples down below
+  // You can map over messages here
   <ChatBubble variant='sent'>
     <ChatBubbleAvatar fallback='US' />
     <ChatBubbleMessage variant='sent'>

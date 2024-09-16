@@ -1,8 +1,9 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Logo from './components/logo'
 
 const config: DocsThemeConfig = {
-  logo: <span>shadcn-chat</span>,
+  logo: <Logo />,
   project: {
     link: 'https://github.com/jakobhoeg/shadcn-chat',
   },
