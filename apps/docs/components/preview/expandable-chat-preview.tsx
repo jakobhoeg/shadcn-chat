@@ -1,6 +1,7 @@
 import {
   ExpandableChat,
   ExpandableChatBody,
+  ExpandableChatFooter,
   ExpandableChatHeader,
 } from "../ui/chat/expandable-chat";
 import { ChatMessageList } from "../ui/chat/chat-message-list";
@@ -10,6 +11,8 @@ import {
   ChatBubbleAvatar,
   ChatBubbleMessage,
 } from "../ui/chat/chat-bubble";
+import { ChatInput } from "../ui/chat/chat-input";
+import { Send } from "lucide-react";
 
 export const ExpandableChatPreviewCode = `<ExpandableChat
   size="md"
@@ -40,6 +43,19 @@ export const ExpandableChatPreviewCode = `<ExpandableChat
       </ChatBubble>
     </ChatMessageList>
   </ExpandableChatBody>
+  <ExpandableChatFooter>
+    <form className="flex relative gap-2">
+      <ChatInput
+        className="min-h-12 bg-background shadow-none "
+      />
+      <Button
+        className="absolute top-1/2 right-2 transform size-8 -translate-y-1/2"
+        size="icon"
+      >
+        <Send className="size-4" />
+      </Button>
+    </form>
+  </ExpandableChatFooter>
 </ExpandableChat>
 `;
 
@@ -62,6 +78,17 @@ export default function ExpandableChatPreview() {
           </ChatBubble>
         </ChatMessageList>
       </ExpandableChatBody>
+      <ExpandableChatFooter>
+        <form className="flex relative gap-2">
+          <ChatInput className="min-h-12 bg-background shadow-none " />
+          <Button
+            className="absolute top-1/2 right-2 transform size-8 -translate-y-1/2"
+            size="icon"
+          >
+            <Send className="size-4" />
+          </Button>
+        </form>
+      </ExpandableChatFooter>
     </ExpandableChat>
   );
 }

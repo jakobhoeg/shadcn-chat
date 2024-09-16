@@ -116,34 +116,38 @@ Check out the docs for that [here](https://github.com/jakobhoeg/shadcn-chat/tree
 ## API Reference
 
 ### ExpandableChat
-| Prop | Type | Default | Description |
-|-----------|--------------------------------------------------------|----------------|-------------------------------------------------------|
-| position | "bottom-right" \| "bottom-left" | "bottom-right" | Position of the chat widget on the screen |
-| size | "sm" \| "md" \| "lg" \| "xl" \| "full" | "md" | Size of the chat window |
-| icon | React.ReactNode | - | Custom icon for the chat toggle button |
-| className | string | - | Additional CSS classes for the main container |
-| children | React.ReactNode | - | Content of the chat window |
 
+| Prop      | Type                                   | Default        | Description                                   |
+| --------- | -------------------------------------- | -------------- | --------------------------------------------- |
+| position  | "bottom-right" \| "bottom-left"        | "bottom-right" | Position of the chat widget on the screen     |
+| size      | "sm" \| "md" \| "lg" \| "xl" \| "full" | "md"           | Size of the chat window                       |
+| icon      | React.ReactNode                        | -              | Custom icon for the chat toggle button        |
+| className | string                                 | -              | Additional CSS classes for the main container |
+| children  | React.ReactNode                        | -              | Content of the chat window                    |
 
 ### ExpandableChatHeader
-| Prop | Type | Default | Description |
-|-----------|----------|-------------|-----------------------------------------------|
-| className | string | - | Additional CSS classes for the header section |
+
+| Prop      | Type   | Default | Description                                   |
+| --------- | ------ | ------- | --------------------------------------------- |
+| className | string | -       | Additional CSS classes for the header section |
 
 ### ExpandableChatBody
-| Prop | Type | Default | Description |
-|-----------|----------|-------------|---------------------------------------------|
-| className | string | - | Additional CSS classes for the body section |
+
+| Prop      | Type   | Default | Description                                 |
+| --------- | ------ | ------- | ------------------------------------------- |
+| className | string | -       | Additional CSS classes for the body section |
 
 ### ExpandableChatFooter
-| Prop | Type | Default | Description |
-|-----------|----------|-------------|-----------------------------------------------|
-| className | string | - | Additional CSS classes for the footer section |
+
+| Prop      | Type   | Default | Description                                   |
+| --------- | ------ | ------- | --------------------------------------------- |
+| className | string | -       | Additional CSS classes for the footer section |
 
 ### ExpandableChatToggle (internal component)
-| Prop | Type | Default | Description |
-|------------|----------------------|-------------|------------------------------------------------|
-| icon | React.ReactNode | - | Custom icon for the toggle button |
-| isOpen | boolean | - | Current open/closed state of the chat window |
-| toggleChat | () => void | - | Function to toggle the chat window open/closed |
-| className | string | - | Additional CSS classes for the toggle button |
+
+| Prop       | Type            | Default | Description                                    |
+| ---------- | --------------- | ------- | ---------------------------------------------- |
+| icon       | React.ReactNode | -       | Custom icon for the toggle button              |
+| isOpen     | boolean         | -       | Current open/closed state of the chat window   |
+| toggleChat | () => void      | -       | Function to toggle the chat window open/closed |
+| className  | string          | -       | Additional CSS classes for the toggle button   |
