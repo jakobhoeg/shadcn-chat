@@ -4,17 +4,29 @@ The ExpandableChat `expandable-chat.tsx` component gives an easily installable c
 
 There's an example repository [here](https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai) that gives you a ready-to-use chatbot with Vercel AI's SDK.
 
-import ComponentPreview from '../../components/component-preview';
-import ExpandableChatPreview from '../../components/preview/expandable-chat-preview';
-import { ExpandableChatPreviewCode } from '../../components/preview/expandable-chat-preview';
+import ComponentPreview from "../../components/component-preview";
+import ExpandableChatPreview from "../../components/preview/expandable-chat-preview";
+import { ExpandableChatPreviewCode } from "../../components/preview/expandable-chat-preview";
 
-<ComponentPreview component={<p className='text-sm'>Check it out in the bottom right corner of your screen!</p>} code={ExpandableChatPreviewCode} />
+<ComponentPreview
+  component={
+    <p className="text-sm">
+      Check it out in the bottom right corner of your screen!
+    </p>
+  }
+  code={ExpandableChatPreviewCode}
+/>
 
 <ExpandableChatPreview />
 
 ## Installation
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs" 
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../components/ui/tabs";
 
 <Tabs className="pt-2" defaultValue="cli">
 
@@ -33,55 +45,50 @@ npx shadcn-chat-cli@latest add expandable-chat
 
 ## Example usage
 
-
 Create a `chat-support.tsx` file:
 
 ```tsx filename="chat-support.tsx" copy
-import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from '@/components/ui/chat/chat-bubble'
-import { ChatInput } from '@/components/ui/chat/chat-input'
-import { ExpandableChat, ExpandableChatHeader, ExpandableChatBody, ExpandableChatFooter } from '@/components/ui/chat/expandable-chat'
-import { ChatMessageList } from '@/components/ui/chat/chat-message-list'
+import {
+  ChatBubble,
+  ChatBubbleAvatar,
+  ChatBubbleMessage,
+} from "@/components/ui/chat/chat-bubble";
+import { ChatInput } from "@/components/ui/chat/chat-input";
+import {
+  ExpandableChat,
+  ExpandableChatHeader,
+  ExpandableChatBody,
+  ExpandableChatFooter,
+} from "@/components/ui/chat/expandable-chat";
+import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 
 export default function ChatSupport() {
   return (
-    <ExpandableChat
-      size='lg'
-      position='bottom-right'>
-      <ExpandableChatHeader className='flex-col text-center justify-center'>
-        <h1 className='text-xl font-semibold'>Chat with our AI ✨</h1>
+    <ExpandableChat size="lg" position="bottom-right">
+      <ExpandableChatHeader className="flex-col text-center justify-center">
+        <h1 className="text-xl font-semibold">Chat with our AI ✨</h1>
         <p>Ask any question for our AI to answer</p>
-        <div className='flex gap-2 items-center pt-2'>
-          <Button
-            variant='secondary'
-          >
-            New Chat
-          </Button>
-          <Button
-            variant='secondary'
-          >
-            See FAQ
-          </Button>
+        <div className="flex gap-2 items-center pt-2">
+          <Button variant="secondary">New Chat</Button>
+          <Button variant="secondary">See FAQ</Button>
         </div>
       </ExpandableChatHeader>
       <ExpandableChatBody>
         <ChatMessageList>
           <ChatBubble>
-            <ChatBubbleAvatar/>
-            <ChatBubbleMessage>
-              {message.content}
-            </ChatBubbleMessage>
+            <ChatBubbleAvatar />
+            <ChatBubbleMessage>{message.content}</ChatBubbleMessage>
           </ChatBubble>
         </ChatMessageList>
       </ExpandableChatBody>
       <ExpandableChatFooter>
         <ChatInput />
-        <Button
-          type="submit" size="icon">
+        <Button type="submit" size="icon">
           <Send className="size-4" />
         </Button>
       </ExpandableChatFooter>
     </ExpandableChat>
-  )
+  );
 }
 ```
 
@@ -105,3 +112,38 @@ npx create-next-app --example https://github.com/jakobhoeg/shadcn-chat/tree/mast
 ```
 
 Check out the docs for that [here](https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai).
+
+## API Reference
+
+### ExpandableChat
+| Prop | Type | Default | Description |
+|-----------|--------------------------------------------------------|----------------|-------------------------------------------------------|
+| position | "bottom-right" \| "bottom-left" | "bottom-right" | Position of the chat widget on the screen |
+| size | "sm" \| "md" \| "lg" \| "xl" \| "full" | "md" | Size of the chat window |
+| icon | React.ReactNode | - | Custom icon for the chat toggle button |
+| className | string | - | Additional CSS classes for the main container |
+| children | React.ReactNode | - | Content of the chat window |
+
+
+### ExpandableChatHeader
+| Prop | Type | Default | Description |
+|-----------|----------|-------------|-----------------------------------------------|
+| className | string | - | Additional CSS classes for the header section |
+
+### ExpandableChatBody
+| Prop | Type | Default | Description |
+|-----------|----------|-------------|---------------------------------------------|
+| className | string | - | Additional CSS classes for the body section |
+
+### ExpandableChatFooter
+| Prop | Type | Default | Description |
+|-----------|----------|-------------|-----------------------------------------------|
+| className | string | - | Additional CSS classes for the footer section |
+
+### ExpandableChatToggle (internal component)
+| Prop | Type | Default | Description |
+|------------|----------------------|-------------|------------------------------------------------|
+| icon | React.ReactNode | - | Custom icon for the toggle button |
+| isOpen | boolean | - | Current open/closed state of the chat window |
+| toggleChat | () => void | - | Function to toggle the chat window open/closed |
+| className | string | - | Additional CSS classes for the toggle button |

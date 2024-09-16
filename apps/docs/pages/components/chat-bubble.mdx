@@ -4,15 +4,23 @@ The ChatBubble component `chat-bubble.tsx` is the main component in this library
 
 Wrap the `ChatBubble` component with `ChatMessageList` to properly show the chat bubbles.
 
-import ComponentPreview from '../../components/component-preview';
-import ChatBubblePreview from '../../components/preview/chat-bubble-preview';
-import { ChatBubblePreviewCode } from '../../components/preview/chat-bubble-preview';
+import ComponentPreview from "../../components/component-preview";
+import ChatBubblePreview from "../../components/preview/chat-bubble-preview";
+import { ChatBubblePreviewCode } from "../../components/preview/chat-bubble-preview";
 
-<ComponentPreview component={<ChatBubblePreview />} code={ChatBubblePreviewCode} />
+<ComponentPreview
+  component={<ChatBubblePreview />}
+  code={ChatBubblePreviewCode}
+/>
 
 ## Installation
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs" 
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../components/ui/tabs";
 
 <Tabs className="pt-2" defaultValue="cli">
 
@@ -29,52 +37,60 @@ npx shadcn-chat-cli@latest add chat-bubble
 </TabsContent>
 </Tabs>
 
-
 ## Examples
 
 ### Default layout w/ actions and altered styles
 
-import ChatBubbleExample from '../../components/preview/chat-bubble-example';
-import { ChatBubbleExampleCode } from '../../components/preview/chat-bubble-example';
+import ChatBubbleExample from "../../components/preview/chat-bubble-example";
+import { ChatBubbleExampleCode } from "../../components/preview/chat-bubble-example";
 
-<ComponentPreview component={<ChatBubbleExample />} code={ChatBubbleExampleCode} />
+<ComponentPreview
+  component={<ChatBubbleExample />}
+  code={ChatBubbleExampleCode}
+/>
 
 ### AI layout w/ actions
 
-import ChatBubbleAILayoutExample from '../../components/preview/chat-bubble-ai-layout-example';
-import { ChatBubbleAILayoutExampleCode } from '../../components/preview/chat-bubble-ai-layout-example';
+import ChatBubbleAILayoutExample from "../../components/preview/chat-bubble-ai-layout-example";
+import { ChatBubbleAILayoutExampleCode } from "../../components/preview/chat-bubble-ai-layout-example";
 
-<ComponentPreview component={<ChatBubbleAILayoutExample />} code={ChatBubbleAILayoutExampleCode} />
+<ComponentPreview
+  component={<ChatBubbleAILayoutExample />}
+  code={ChatBubbleAILayoutExampleCode}
+/>
 
 ## API Reference
 
 ### ChatBubble
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `'sent'` \| `'received'` | `'received'` | The variant of the chat bubble. Used to display the correct position of the chat bubble and the correct colors. |
-| `layout` | `'default'` \| `'ai'` | `'default'` | The layout of the chat bubble. Used to display various layouts. |
-| `children` | `React.ReactNode` | `null` | The children of the chat bubble. |
-| `className` | `string` | `null` | Additional classes to apply to the chat bubble. |
+
+| Prop        | Type                     | Default      | Description                                                                                                     |
+| ----------- | ------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------- |
+| `variant`   | `'sent'` \| `'received'` | `'received'` | The variant of the chat bubble. Used to display the correct position of the chat bubble and the correct colors. |
+| `layout`    | `'default'` \| `'ai'`    | `'default'`  | The layout of the chat bubble. Used to display various layouts.                                                 |
+| `children`  | `React.ReactNode`        | `null`       | The children of the chat bubble.                                                                                |
+| `className` | `string`                 | `null`       | Additional classes to apply to the chat bubble.                                                                 |
 
 ### ChatBubbleMessage
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+
+| Prop        | Type      | Default | Description                                                                  |
+| ----------- | --------- | ------- | ---------------------------------------------------------------------------- |
 | `isLoading` | `boolean` | `false` | If the message is loading. Shows loading component `MessageLoading` if true. |
-| `className` | `string` | `null` | Additional classes to apply to the message. |
+| `className` | `string`  | `null`  | Additional classes to apply to the message.                                  |
 
 ### ChatBubbleAvatar
+
 > You can also just use the `Avatar` component from `shadcn/ui` instead
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `src` | `string` | `null` | The source of the avatar. |
-| `fallback` | `string` | `null` | The fallback of the avatar. |
-| `className` | `string` | `null` | Additional classes to apply to the avatar. |
+| Prop        | Type     | Default | Description                                |
+| ----------- | -------- | ------- | ------------------------------------------ |
+| `src`       | `string` | `null`  | The source of the avatar.                  |
+| `fallback`  | `string` | `null`  | The fallback of the avatar.                |
+| `className` | `string` | `null`  | Additional classes to apply to the avatar. |
 
 ### ChatBubbleAction
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `icon` | `React.ReactNode` | `null` | The icon of the action. |
-| `onClick` | `() => void` | `null` | The onClick event of the action. |
-| `className` | `string` | `null` | Additional classes to apply to the action. |
 
+| Prop        | Type              | Default | Description                                |
+| ----------- | ----------------- | ------- | ------------------------------------------ |
+| `icon`      | `React.ReactNode` | `null`  | The icon of the action.                    |
+| `onClick`   | `() => void`      | `null`  | The onClick event of the action.           |
+| `className` | `string`          | `null`  | Additional classes to apply to the action. |

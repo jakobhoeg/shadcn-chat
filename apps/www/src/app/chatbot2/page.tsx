@@ -148,11 +148,11 @@ export default function Page() {
                         alt="Avatar"
                         className={message.role === "ai" ? "dark:invert" : ""}
                       />
-                      <AvatarFallback>{message.role === "ai" ? "🤖" : ""}</AvatarFallback>
+                      <AvatarFallback>
+                        {message.role === "ai" ? "🤖" : ""}
+                      </AvatarFallback>
                     </Avatar>
-                    <ChatBubbleMessage
-                      isLoading={message.isLoading}
-                    >
+                    <ChatBubbleMessage isLoading={message.isLoading}>
                       {message.message}
                       {message.role === "ai" && (
                         <div className="flex items-center mt-1.5 gap-1">

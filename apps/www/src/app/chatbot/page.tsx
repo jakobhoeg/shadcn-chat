@@ -149,11 +149,11 @@ export default function Page() {
                         alt="Avatar"
                         className={message.role === "ai" ? "dark:invert" : ""}
                       />
-                      <AvatarFallback>{message.role === "ai" ? "🤖" : "GG"}</AvatarFallback>
+                      <AvatarFallback>
+                        {message.role === "ai" ? "🤖" : "GG"}
+                      </AvatarFallback>
                     </Avatar>
-                    <ChatBubbleMessage
-                      isLoading={message.isLoading}
-                    >
+                    <ChatBubbleMessage isLoading={message.isLoading}>
                       {message.message}
                       {message.role === "ai" && (
                         <div className="flex items-center mt-1.5 gap-1">
@@ -167,7 +167,14 @@ export default function Page() {
                                     className="size-6"
                                     key={index}
                                     icon={<Icon className="size-3" />}
-                                    onClick={() => console.log("Action " + icon.label + " clicked for message " + index)}
+                                    onClick={() =>
+                                      console.log(
+                                        "Action " +
+                                          icon.label +
+                                          " clicked for message " +
+                                          index,
+                                      )
+                                    }
                                   />
                                 );
                               })}
