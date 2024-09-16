@@ -10,6 +10,9 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'shadcn-chat documentation',
   },
+  nextThemes: {
+    defaultTheme: 'light',
+  },
 }
 
 export default config
