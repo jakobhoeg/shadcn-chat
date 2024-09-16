@@ -75,7 +75,6 @@ export function ChatList({
                 >
                   <ChatBubbleAvatar src={message.avatar} />
                   <ChatBubbleMessage
-                    variant={variant}
                     isLoading={message.isLoading}
                   >
                     {message.message}
@@ -83,7 +82,7 @@ export function ChatList({
                       <ChatBubbleTimestamp timestamp={message.timestamp} />
                     )}
                   </ChatBubbleMessage>
-                  <ChatBubbleActionWrapper variant={variant}>
+                  <ChatBubbleActionWrapper>
                     {actionIcons.map(({ icon: Icon, type }) => (
                       <ChatBubbleAction
                         className="size-7"

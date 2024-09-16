@@ -153,7 +153,6 @@ export default function Page() {
                     </Avatar>
                     <ChatBubbleMessage
                       isLoading={message.isLoading}
-                      variant={variant}
                     >
                       {message.message}
                       {message.role === "ai" && (
