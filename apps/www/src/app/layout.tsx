@@ -78,11 +78,11 @@ export default function RootLayout({
                 . Check out the{" "}
                 <a
                   className="font-semibold"
-                  href="https://docsshadcn-chat.vercel.app/"
+                  href="https://docs-shadcn-chat.vercel.app/"
                 >
                   documentation
                 </a>
-                .
+                to get started.
               </p>
               <p className="max-w-[150px] sm:max-w-lg text-right">
                 Source code available on{" "}

@@ -2,9 +2,11 @@
 
 A CLI for adding **chat** components to your project.
 
-# Installation
+# Documentation
 
-Check out the full documentation and API reference [here](https://docsshadcn-chat.vercel.app/).
+Check out the full documentation and API reference [here](https://docs-shadcn-chat.vercel.app/).
+
+# Installation
 
 > Some of the components rely on [shadcn-ui](https://ui.shadcn.com/docs/installation), so make sure to have it installed.
 
