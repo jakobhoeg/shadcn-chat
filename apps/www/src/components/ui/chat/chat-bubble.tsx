@@ -34,7 +34,11 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
       ref={ref}
       {...props}
     >
-      {children}
+      {React.Children.map(children, child =>
+        React.isValidElement(child) && typeof child.type !== 'string'
+          ? React.cloneElement(child, { variant, layout } as React.ComponentProps<typeof child.type>)
+          : child
+      )}
     </div>
   ),
 );
@@ -151,22 +155,27 @@ const ChatBubbleAction: React.FC<ChatBubbleActionProps> = ({
   </Button>
 );
 
-interface ChatBubbleActionWrapperProps {
-  variant: "sent" | "received";
+interface ChatBubbleActionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: "sent" | "received";
   className?: string;
-  children: React.ReactNode;
 }
 
-// ChatBubbleActionWrapper
-const ChatBubbleActionWrapper: React.FC<ChatBubbleActionWrapperProps> = ({ variant, className, children }) => (
-  <div className={cn(
-    "absolute top-1/2 -translate-y-1/2 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200",
-    variant === "sent" ? "-left-1 -translate-x-full flex-row-reverse" : "-right-1 translate-x-full",
-    className
-  )}>
-    {children}
-  </div>
+const ChatBubbleActionWrapper = React.forwardRef<HTMLDivElement, ChatBubbleActionWrapperProps>(
+  ({ variant, className, children, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "absolute top-1/2 -translate-y-1/2 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200",
+        variant === "sent" ? "-left-1 -translate-x-full flex-row-reverse" : "-right-1 translate-x-full",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  )
 );
+ChatBubbleActionWrapper.displayName = "ChatBubbleActionWrapper";
 
 export {
   ChatBubble,

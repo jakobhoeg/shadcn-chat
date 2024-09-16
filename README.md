@@ -140,13 +140,13 @@ And then use that component on all your sites by placing it in `layout.tsx` (Nex
 `layout.tsx`:
 
 ```
- <html lang="en">
-      <body>
-        </main>
-          {children}
-          <ChatSupport />
-        </main>
-      </body>
+<html lang="en">
+<body>
+  </main>
+    {children}
+    <ChatSupport />
+  </main>
+</body>
 ```
 
 Check out [this](https://github.com/jakobhoeg/shadcn-chat/blob/master/apps/www/src/components/chat/chat-support.tsx#L73-L156) for a better overview of the api.

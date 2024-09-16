@@ -151,7 +151,6 @@ export default function Page() {
                       <AvatarFallback>{message.role === "ai" ? "🤖" : ""}</AvatarFallback>
                     </Avatar>
                     <ChatBubbleMessage
-                      layout="ai"
                       isLoading={message.isLoading}
                     >
                       {message.message}
