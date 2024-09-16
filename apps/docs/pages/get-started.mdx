@@ -1,0 +1,54 @@
+# Get started
+
+> The components are built using [tailwindcss](https://tailwindcss.com/docs/installation) and also relies on some components from [shadcn-ui](https://ui.shadcn.com/docs/installation).
+> Make sure to initialize shadcn in your project before proceeding.
+> 
+> I am currenlty in the works of also creating a standalone version of the components that will not rely on shadcn-ui.
+
+Add components by using the `npx` command in your project root directory:
+
+### Add all components
+
+```bash
+npx shadcn-chat-cli@latest add --all
+```
+
+### Add individual components
+
+To view a list of all available components run the following command:
+
+```bash
+npx shadcn-chat-cli@latest add
+```
+
+Or add a specific component by running the following command:
+
+```bash
+npx shadcn-chat-cli@latest add <component-name>
+```
+
+The components will be added to the `src/components/ui/chat` directory.
+
+## Component
+
+import { useState } from 'react'
+
+{/* Import CSS modules */}
+import styles from '../components/counters.module.css'
+
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} times</button>
+    </div>
+  );
+};
+
+<Counter/>
+
+## External Component
+
+import Counters from '../components/counters'
+
+<Counters />
