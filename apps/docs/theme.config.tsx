@@ -1,6 +1,7 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Logo from './components/logo'
+import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -13,6 +14,14 @@ const config: DocsThemeConfig = {
   },
   nextThemes: {
     defaultTheme: 'light',
+  },
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s'
+      }
+    }
   },
 }
 
