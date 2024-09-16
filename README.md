@@ -17,9 +17,11 @@ https://github.com/user-attachments/assets/b137f6a2-4565-4b4a-8a58-a8dfe0b66a7a
 
 Build an AI support chatbot from scratch in less than five minutes! Find the code from the video [here](https://github.com/jakobhoeg/shadcn-chat/tree/master/examples/shadcn-chat-example-vercel-ai).
 
-# Installation
+# Documentation
 
-Check out the full documentation and API reference [here](https://docsshadcn-chat.vercel.app/).
+Check out the full documentation and API reference [here](https://docs-shadcn-chat.vercel.app/).
+
+# Installation
 
 > [!NOTE]
 > Some of the components rely on [shadcn-ui](https://ui.shadcn.com/docs/installation), so make sure to have it installed.
