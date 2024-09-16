@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider";
 import ChatSupport from "@/components/chat-support";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-muted/30`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="system">
           {children}
           <ChatSupport />
         </ThemeProvider>

@@ -76,7 +76,10 @@ export default function RootLayout({
                   Jakob Hoeg
                 </a>
                 . Check out the{" "}
-                <a className="font-semibold" href="https://docsshadcn-chat.vercel.app/">
+                <a
+                  className="font-semibold"
+                  href="https://docsshadcn-chat.vercel.app/"
+                >
                   documentation
                 </a>
                 .

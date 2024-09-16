@@ -41,9 +41,9 @@ export function ChatList({
   }, [messages]);
 
   const actionIcons = [
-    { icon: DotsVerticalIcon, type: 'More' },
-    { icon: Forward, type: 'Like' },
-    { icon: Heart, type: 'Share' },
+    { icon: DotsVerticalIcon, type: "More" },
+    { icon: Forward, type: "Like" },
+    { icon: Heart, type: "Share" },
   ];
 
   return (
@@ -71,12 +71,9 @@ export function ChatList({
                 className="flex flex-col gap-2 p-4"
               >
                 {/* Usage of ChatBubble component */}
-                <ChatBubble variant={variant}
-                >
+                <ChatBubble variant={variant}>
                   <ChatBubbleAvatar src={message.avatar} />
-                  <ChatBubbleMessage
-                    isLoading={message.isLoading}
-                  >
+                  <ChatBubbleMessage isLoading={message.isLoading}>
                     {message.message}
                     {message.timestamp && (
                       <ChatBubbleTimestamp timestamp={message.timestamp} />
@@ -88,7 +85,11 @@ export function ChatList({
                         className="size-7"
                         key={type}
                         icon={<Icon className="size-4" />}
-                        onClick={() => console.log('Action ' + type + ' clicked for message ' + index)}
+                        onClick={() =>
+                          console.log(
+                            "Action " + type + " clicked for message " + index,
+                          )
+                        }
                       />
                     ))}
                   </ChatBubbleActionWrapper>
