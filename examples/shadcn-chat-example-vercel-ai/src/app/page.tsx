@@ -2,6 +2,7 @@
 
 import {
   ChatBubble,
+  ChatBubbleAction,
   ChatBubbleAvatar,
   ChatBubbleMessage,
 } from "@/components/ui/chat/chat-bubble";
@@ -23,7 +24,6 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CodeDisplayBlock from "@/components/code-display-block";
-import { ChatBubbleAction } from "@/components/ui/chat/chat-bubble copy";
 
 const ChatAiIcons = [
   {
@@ -177,7 +177,6 @@ export default function Home() {
                 fallback={message.role == "user" ? "👨🏽" : "🤖"}
               />
               <ChatBubbleMessage
-                variant={message.role == "user" ? "sent" : "received"}
               >
                 {message.content
                   .split("```")
