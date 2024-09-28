@@ -33,7 +33,3 @@ npx shadcn-chat-cli add [component]
 ```
 
 The components will be installed in a subdirectory of the `components` folder: `src/components/ui/chat`
-
-# Usage & Examples
-
-All of the component primitives are unstyled and you can add styling in any way you'd like - for instance with `className`.
