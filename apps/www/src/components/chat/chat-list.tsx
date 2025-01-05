@@ -14,6 +14,7 @@ import {
 import { ChatMessageList } from "../ui/chat/chat-message-list";
 import { DotsVerticalIcon, HeartIcon, Share1Icon } from "@radix-ui/react-icons";
 import { Forward, Heart } from "lucide-react";
+import { useAutoScroll } from "../ui/chat/hooks/useAutoScroll";
 
 interface ChatListProps {
   messages: Message[];
@@ -31,15 +32,6 @@ export function ChatList({
   sendMessage,
   isMobile,
 }: ChatListProps) {
-  const messagesContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop =
-        messagesContainerRef.current.scrollHeight;
-    }
-  }, [messages]);
-
   const actionIcons = [
     { icon: DotsVerticalIcon, type: "More" },
     { icon: Forward, type: "Like" },
@@ -47,8 +39,8 @@ export function ChatList({
   ];
 
   return (
-    <div className="w-full overflow-y-auto h-full flex flex-col">
-      <ChatMessageList ref={messagesContainerRef}>
+    <div className="w-full overflow-y-hidden h-full flex flex-col">
+      <ChatMessageList>
         <AnimatePresence>
           {messages.map((message, index) => {
             const variant = getMessageVariant(message.name, selectedUser.name);
@@ -87,7 +79,7 @@ export function ChatList({
                         icon={<Icon className="size-4" />}
                         onClick={() =>
                           console.log(
-                            "Action " + type + " clicked for message " + index,
+                            "Action " + type + " clicked for message " + index
                           )
                         }
                       />
@@ -99,7 +91,6 @@ export function ChatList({
           })}
         </AnimatePresence>
       </ChatMessageList>
-      <ChatBottombar isMobile={isMobile} />
     </div>
   );
 }

@@ -51,7 +51,7 @@ export default function RootLayout({
                   href="https://github.com/jakobhoeg/shadcn-chat"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-7",
+                    "size-7"
                   )}
                 >
                   <GitHubLogoIcon className="size-7" />
@@ -80,7 +80,7 @@ export default function RootLayout({
                   className="font-semibold"
                   href="https://docs-shadcn-chat.vercel.app/"
                 >
-                  documentation
+                  documentation{" "}
                 </a>
                 to get started.
               </p>

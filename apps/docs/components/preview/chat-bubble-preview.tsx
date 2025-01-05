@@ -33,7 +33,7 @@ export const ChatBubblePreviewCode = `// Wrap with ChatMessageList
 
 export default function ChatBubblePreview() {
   return (
-    <ChatMessageList>
+    <ChatMessageList className="max-h-60">
       <ChatBubble variant="sent">
         <ChatBubbleAvatar fallback="US" />
         <ChatBubbleMessage>
