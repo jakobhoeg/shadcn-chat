@@ -56,7 +56,10 @@ export const add = new Command()
       }
 
       for (const component of componentsToInstall) {
-        if (!registryIndex.some((c: any) => c.name === component)) {
+        const registryComponent = registryIndex.find(
+          (c: any) => c.name === component,
+        );
+        if (!registryComponent) {
           console.error(
             chalk.red(`Component "${component}" not found in the registry.`),
           );
@@ -70,14 +73,12 @@ export const add = new Command()
         ]);
         spinner.succeed(`Component ${chalk.cyan(component)} fetched`);
 
-        // Create the target directory if it doesn't exist
-        const targetDir = path.join(
-          process.cwd(),
-          "src",
-          "components",
-          "ui",
-          "chat",
-        );
+        // Determine the target directory based on the component type
+        const baseDir = path.join(process.cwd(), "src", "components", "ui", "chat");
+        const targetDir =
+          registryComponent.type === "hooks"
+            ? path.join(baseDir, "hooks")
+            : baseDir;
 
         spinner.start("Writing component files...");
         await Promise.all([
@@ -86,7 +87,7 @@ export const add = new Command()
         ]);
         spinner.succeed(
           chalk.green(
-            `Component ${chalk.cyan(component)} and its dependencies have been added successfully to ${chalk.cyan("src/components/ui/chat")}.`,
+            `Component ${chalk.cyan(component)} and its dependencies have been added successfully to ${chalk.cyan(targetDir)}.`,
           ),
         );
 

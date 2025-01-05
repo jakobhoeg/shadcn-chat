@@ -3,16 +3,20 @@ import path from "path";
 
 export async function writeComponentFiles(
   components: any[],
-  customPath?: string,
+  baseDir: string,
 ) {
-  const baseDir = customPath
-    ? path.resolve(process.cwd(), customPath)
-    : path.join(process.cwd(), "src", "components");
-
   for (const component of components) {
+    // Determine the target directory based on the component type
+    const targetDir = path.join(
+      baseDir,
+      component.type === "hooks" ? "hooks" : "",
+    );
+
+    // Ensure the target directory exists
+    await fs.ensureDir(targetDir);
+
     for (const file of component.files) {
-      const filePath = path.join(baseDir, file.name);
-      await fs.ensureDir(path.dirname(filePath));
+      const filePath = path.join(targetDir, file.name);
       await fs.writeFile(filePath, file.content);
     }
   }
