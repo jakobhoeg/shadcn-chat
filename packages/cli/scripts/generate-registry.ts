@@ -13,6 +13,21 @@ const componentsDir = path.join(
   "ui",
   "chat",
 );
+
+const hooksDir = path.join(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "apps",
+  "www",
+  "src",
+  "components",
+  "ui",
+  "chat",
+  "hooks",
+);
+
 const outputPath = path.join(
   __dirname,
   "..",
@@ -25,6 +40,12 @@ const outputPath = path.join(
   "index.json",
 );
 
-generateRegistry(componentsDir, outputPath)
+generateRegistry(
+  [
+    { dir: componentsDir, type: "components:ui" },
+    { dir: hooksDir, type: "hooks" },
+  ],
+  outputPath
+)
   .then(() => console.log("Registry generation complete"))
   .catch((error) => console.error("Error generating registry:", error));

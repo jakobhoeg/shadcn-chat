@@ -26,10 +26,9 @@ async function getHiddenComponent(name: string) {
   const data = await getRegistryData();
   return data.hiddenComponents.find((item: any) => item.name === name);
 }
-
 export async function fetchComponent(
   name: string,
-  fetchedComponents = new Set(),
+  fetchedComponents: Set<any> = new Set(), // Accept an external Set
 ) {
   const index = await getRegistryIndex();
   let component = index.find((item: any) => item.name === name);
@@ -47,7 +46,7 @@ export async function fetchComponent(
   if (component.dependencies && Array.isArray(component.dependencies)) {
     for (const depName of component.dependencies) {
       if (!fetchedComponents.has(depName)) {
-        await fetchComponent(depName, fetchedComponents);
+        await fetchComponent(depName, fetchedComponents); // Pass the same Set
       }
     }
   }

@@ -44,26 +44,18 @@ export default function Page() {
   const setInput = useChatStore((state) => state.setInput);
   const handleInputChange = useChatStore((state) => state.handleInputChange);
   const hasInitialAIResponse = useChatStore(
-    (state) => state.hasInitialAIResponse,
+    (state) => state.hasInitialAIResponse
   );
   const setHasInitialAIResponse = useChatStore(
-    (state) => state.setHasInitialAIResponse,
+    (state) => state.setHasInitialAIResponse
   );
   const [isLoading, setisLoading] = useState(false);
-
-  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const getMessageVariant = (role: string) =>
     role === "ai" ? "received" : "sent";
-  useEffect(() => {
-    if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop =
-        messagesContainerRef.current.scrollHeight;
-    }
-  }, [messages]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -116,9 +108,9 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="h-full w-full">
-      <div className="relative flex h-full flex-col rounded-xl bg-muted/40 p-4 lg:col-span-2">
-        <ChatMessageList ref={messagesContainerRef}>
+    <div className="flex h-full w-full flex-col">
+      <div className="flex-1 w-full overflow-y-auto bg-muted/40">
+        <ChatMessageList>
           {/* Chat messages */}
           <AnimatePresence>
             {messages.map((message, index) => {
@@ -179,7 +171,8 @@ export default function Page() {
             })}
           </AnimatePresence>
         </ChatMessageList>
-        <div className="flex-1" />
+      </div>
+      <div className="px-4 pb-4 bg-muted/40">
         <form
           ref={formRef}
           onSubmit={handleSendMessage}

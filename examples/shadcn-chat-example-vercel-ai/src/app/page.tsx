@@ -110,128 +110,131 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen w-full max-w-3xl flex-col items-center mx-auto py-6">
-      <ChatMessageList ref={messagesRef}>
-        {/* Initial Message */}
-        {messages.length === 0 && (
-          <div className="w-full bg-background shadow-sm border rounded-lg p-8 flex flex-col gap-2">
-            <h1 className="font-bold">Welcome to this example app.</h1>
-            <p className="text-muted-foreground text-sm">
-              This is a simple Next.JS example application created using{" "}
-              <a
-                href="https://github.com/jakobhoeg/shadcn-chat"
-                className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
-              >
-                shadcn-chat
-                <svg
-                  aria-hidden="true"
-                  height="7"
-                  viewBox="0 0 6 6"
-                  width="7"
-                  className="opacity-70"
+    <main className="flex h-screen w-full max-w-3xl flex-col items-center mx-auto">
+      <div className="flex-1 w-full overflow-y-auto py-6">
+        <ChatMessageList>
+          {/* Initial Message */}
+          {messages.length === 0 && (
+            <div className="w-full bg-background shadow-sm border rounded-lg p-8 flex flex-col gap-2">
+              <h1 className="font-bold">Welcome to this example app.</h1>
+              <p className="text-muted-foreground text-sm">
+                This is a simple Next.JS example application created using{" "}
+                <a
+                  href="https://github.com/jakobhoeg/shadcn-chat"
+                  className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
                 >
-                  <path
-                    d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </a>{" "}
-              components. It uses{" "}
-              <a
-                href="https://sdk.vercel.ai/"
-                className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
-              >
-                Vercel AI SDK
-                <svg
-                  aria-hidden="true"
-                  height="7"
-                  viewBox="0 0 6 6"
-                  width="7"
-                  className="opacity-70"
+                  shadcn-chat
+                  <svg
+                    aria-hidden="true"
+                    height="7"
+                    viewBox="0 0 6 6"
+                    width="7"
+                    className="opacity-70"
+                  >
+                    <path
+                      d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>{" "}
+                components. It uses{" "}
+                <a
+                  href="https://sdk.vercel.ai/"
+                  className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
                 >
-                  <path
-                    d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </a>{" "}
-              for the AI integration. Build chat interfaces like this at
-              lightspeed with shadcn-chat.
-            </p>
-            <p className="text-muted-foreground text-sm">
-              Make sure to also checkout the shadcn-chat support component at
-              the bottom right corner.
-            </p>
-          </div>
-        )}
+                  Vercel AI SDK
+                  <svg
+                    aria-hidden="true"
+                    height="7"
+                    viewBox="0 0 6 6"
+                    width="7"
+                    className="opacity-70"
+                  >
+                    <path
+                      d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>{" "}
+                for the AI integration. Build chat interfaces like this at
+                lightspeed with shadcn-chat.
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Make sure to also checkout the shadcn-chat support component at
+                the bottom right corner.
+              </p>
+            </div>
+          )}
 
-        {/* Messages */}
-        {messages &&
-          messages.map((message, index) => (
-            <ChatBubble
-              key={index}
-              variant={message.role == "user" ? "sent" : "received"}
-            >
-              <ChatBubbleAvatar
-                src=""
-                fallback={message.role == "user" ? "👨🏽" : "🤖"}
-              />
-              <ChatBubbleMessage
+          {/* Messages */}
+          {messages &&
+            messages.map((message, index) => (
+              <ChatBubble
+                key={index}
+                variant={message.role == "user" ? "sent" : "received"}
               >
-                {message.content
-                  .split("```")
-                  .map((part: string, index: number) => {
-                    if (index % 2 === 0) {
-                      return (
-                        <Markdown key={index} remarkPlugins={[remarkGfm]}>
-                          {part}
-                        </Markdown>
-                      );
-                    } else {
-                      return (
-                        <pre className="whitespace-pre-wrap pt-2" key={index}>
-                          <CodeDisplayBlock code={part} lang="" />
-                        </pre>
-                      );
-                    }
-                  })}
+                <ChatBubbleAvatar
+                  src=""
+                  fallback={message.role == "user" ? "👨🏽" : "🤖"}
+                />
+                <ChatBubbleMessage>
+                  {message.content
+                    .split("```")
+                    .map((part: string, index: number) => {
+                      if (index % 2 === 0) {
+                        return (
+                          <Markdown key={index} remarkPlugins={[remarkGfm]}>
+                            {part}
+                          </Markdown>
+                        );
+                      } else {
+                        return (
+                          <pre className="whitespace-pre-wrap pt-2" key={index}>
+                            <CodeDisplayBlock code={part} lang="" />
+                          </pre>
+                        );
+                      }
+                    })}
 
-                {message.role === "assistant" &&
-                  messages.length - 1 === index && (
-                    <div className="flex items-center mt-1.5 gap-1">
-                      {!isGenerating && (
-                        <>
-                          {ChatAiIcons.map((icon, iconIndex) => {
-                            const Icon = icon.icon;
-                            return (
-                              <ChatBubbleAction
-                                variant="outline"
-                                className="size-5"
-                                key={iconIndex}
-                                icon={<Icon className="size-3" />}
-                                onClick={() =>
-                                  handleActionClick(icon.label, index)
-                                }
-                              />
-                            );
-                          })}
-                        </>
-                      )}
-                    </div>
-                  )}
-              </ChatBubbleMessage>
+                  {message.role === "assistant" &&
+                    messages.length - 1 === index && (
+                      <div className="flex items-center mt-1.5 gap-1">
+                        {!isGenerating && (
+                          <>
+                            {ChatAiIcons.map((icon, iconIndex) => {
+                              const Icon = icon.icon;
+                              return (
+                                <ChatBubbleAction
+                                  variant="outline"
+                                  className="size-5"
+                                  key={iconIndex}
+                                  icon={<Icon className="size-3" />}
+                                  onClick={() =>
+                                    handleActionClick(icon.label, index)
+                                  }
+                                />
+                              );
+                            })}
+                          </>
+                        )}
+                      </div>
+                    )}
+                </ChatBubbleMessage>
+              </ChatBubble>
+            ))}
+
+          {/* Loading */}
+          {isGenerating && (
+            <ChatBubble variant="received">
+              <ChatBubbleAvatar src="" fallback="🤖" />
+              <ChatBubbleMessage isLoading />
             </ChatBubble>
-          ))}
+          )}
+        </ChatMessageList>
+      </div>
 
-        {/* Loading */}
-        {isGenerating && (
-          <ChatBubble variant="received">
-            <ChatBubbleAvatar src="" fallback="🤖" />
-            <ChatBubbleMessage isLoading />
-          </ChatBubble>
-        )}
-      </ChatMessageList>
-      <div className="w-full px-4">
+      {/* Form and Footer fixed at the bottom */}
+      <div className="w-full px-4 pb-4">
         <form
           ref={formRef}
           onSubmit={onSubmit}
@@ -242,7 +245,7 @@ export default function Home() {
             onKeyDown={onKeyDown}
             onChange={handleInputChange}
             placeholder="Type your message here..."
-            className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
+            className="rounded-lg bg-background border-0 shadow-none focus-visible:ring-0"
           />
           <div className="flex items-center p-3 pt-0">
             <Button variant="ghost" size="icon">
@@ -266,29 +269,29 @@ export default function Home() {
             </Button>
           </div>
         </form>
-      </div>
-      <div className="pt-4 flex gap-2 items-center">
-        <GitHubLogoIcon className="size-4" />
-        <p className="text-xs">
-          <a
-            href="https://github.com/jakobhoeg/shadcn-chat"
-            className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
-          >
-            shadcn-chat
-            <svg
-              aria-hidden="true"
-              height="7"
-              viewBox="0 0 6 6"
-              width="7"
-              className="opacity-70"
+        <div className="pt-4 flex gap-2 items-center justify-center">
+          <GitHubLogoIcon className="size-4" />
+          <p className="text-xs">
+            <a
+              href="https://github.com/jakobhoeg/shadcn-chat"
+              className="font-bold inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
             >
-              <path
-                d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </a>
-        </p>
+              shadcn-chat
+              <svg
+                aria-hidden="true"
+                height="7"
+                viewBox="0 0 6 6"
+                width="7"
+                className="opacity-70"
+              >
+                <path
+                  d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </p>
+        </div>
       </div>
     </main>
   );

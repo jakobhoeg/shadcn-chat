@@ -3,6 +3,7 @@ import ChatTopbar from "./chat-topbar";
 import { ChatList } from "./chat-list";
 import React, { useEffect, useState } from "react";
 import useChatStore from "@/hooks/useChatStore";
+import ChatBottombar from "./chat-bottombar";
 
 interface ChatProps {
   messages?: Message[];
@@ -29,6 +30,8 @@ export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
         sendMessage={sendMessage}
         isMobile={isMobile}
       />
+
+      <ChatBottombar isMobile={isMobile} />
     </div>
   );
 }
