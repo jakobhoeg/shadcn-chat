@@ -45,7 +45,7 @@ generateRegistry(
     { dir: componentsDir, type: "components:ui" },
     { dir: hooksDir, type: "hooks" },
   ],
-  outputPath
+  outputPath,
 )
   .then(() => console.log("Registry generation complete"))
   .catch((error) => console.error("Error generating registry:", error));

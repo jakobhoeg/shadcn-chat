@@ -52,7 +52,7 @@ export default function RootLayout({
                   href="https://github.com/jakobhoeg/shadcn-chat"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-7"
+                    "size-7",
                   )}
                 >
                   <GitHubLogoIcon className="size-7" />

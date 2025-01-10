@@ -79,7 +79,7 @@ export function ChatList({
                         icon={<Icon className="size-4" />}
                         onClick={() =>
                           console.log(
-                            "Action " + type + " clicked for message " + index
+                            "Action " + type + " clicked for message " + index,
                           )
                         }
                       />

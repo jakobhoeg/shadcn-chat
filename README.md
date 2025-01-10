@@ -45,3 +45,18 @@ Otherwise, install individual components by running:
 ```
 npx shadcn-chat-cli add [component]
 ```
+
+# Monorepo
+
+This is a _monorepo_ [(turborepo)](https://turbo.build/repo/docs) split into the following:
+
+- [apps](./apps/):
+  - [www](./apps/www/): The primary web app showcasing some of the features, built with Next.js
+  - [docs](./apps/docs/): The documentation site, built with [Nextra](https://nextra.site/docs)
+- [examples](./examples/): A folder to showcase example apps - such as chatbots etc.
+- [packages](./packages/):
+  - [cli](./packages/cli/): This is the npm pacakage.
+
+# Contributing
+
+Contributions are more than welcome! Please make sure to read the [contributing guidelines](/CONTRIBUTING.md) first.

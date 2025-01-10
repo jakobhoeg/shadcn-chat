@@ -34,7 +34,7 @@ const initialChatSupportMessages: Message[] = [
 
 export default function ChatSupport() {
   const [messages, setMessages] = useState<Message[]>(
-    initialChatSupportMessages
+    initialChatSupportMessages,
   );
   const [inputMessage, setInputMessage] = useState("");
 
