@@ -1,10 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 
-export async function writeComponentFiles(
-  components: any[],
-  baseDir: string,
-) {
+export async function writeComponentFiles(components: any[], baseDir: string) {
   for (const component of components) {
     // Determine the target directory based on the component type
     const targetDir = path.join(

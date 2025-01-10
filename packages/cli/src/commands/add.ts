@@ -74,7 +74,13 @@ export const add = new Command()
         spinner.succeed(`Component ${chalk.cyan(component)} fetched`);
 
         // Determine the target directory based on the component type
-        const baseDir = path.join(process.cwd(), "src", "components", "ui", "chat");
+        const baseDir = path.join(
+          process.cwd(),
+          "src",
+          "components",
+          "ui",
+          "chat",
+        );
         const targetDir =
           registryComponent.type === "hooks"
             ? path.join(baseDir, "hooks")

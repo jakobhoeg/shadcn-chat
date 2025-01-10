@@ -29,7 +29,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   const setMessages = useChatStore((state) => state.setMessages);
   const hasInitialResponse = useChatStore((state) => state.hasInitialResponse);
   const setHasInitialResponse = useChatStore(
-    (state) => state.setHasInitialResponse
+    (state) => state.setHasInitialResponse,
   );
   const [isLoading, setisLoading] = useState(false);
 
@@ -124,7 +124,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
                 "h-9 w-9",
-                "shrink-0"
+                "shrink-0",
               )}
             >
               <PlusCircle size={22} className="text-muted-foreground" />
@@ -138,7 +138,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
                     "h-9 w-9",
-                    "shrink-0"
+                    "shrink-0",
                   )}
                 >
                   <Mic size={22} className="text-muted-foreground" />
@@ -150,7 +150,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "h-9 w-9",
-                      "shrink-0"
+                      "shrink-0",
                     )}
                   >
                     <icon.icon size={22} className="text-muted-foreground" />
@@ -163,7 +163,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
                   "h-9 w-9",
-                  "shrink-0"
+                  "shrink-0",
                 )}
               >
                 <Mic size={22} className="text-muted-foreground" />
@@ -180,7 +180,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
                   "h-9 w-9",
-                  "shrink-0"
+                  "shrink-0",
                 )}
               >
                 <icon.icon size={22} className="text-muted-foreground" />

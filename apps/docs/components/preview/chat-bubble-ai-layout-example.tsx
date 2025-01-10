@@ -94,7 +94,7 @@ export default function ChatBubbleAILayoutExample() {
                       icon={<Icon className="size-3" />}
                       onClick={() =>
                         console.log(
-                          "Action " + type + " clicked for message " + index
+                          "Action " + type + " clicked for message " + index,
                         )
                       }
                     />

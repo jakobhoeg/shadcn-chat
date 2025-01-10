@@ -13,7 +13,10 @@ function isHiddenComponent(content: string): boolean {
   return content.includes("// @hidden") || content.includes("@hidden");
 }
 
-async function generateRegistry(directories: { dir: string; type: string }[], outputPath: string) {
+async function generateRegistry(
+  directories: { dir: string; type: string }[],
+  outputPath: string,
+) {
   const components: Component[] = [];
   const hiddenComponents: Component[] = [];
 

@@ -27,11 +27,11 @@ export function useAutoScroll(options: UseAutoScrollOptions = {}) {
     (element: HTMLElement) => {
       const { scrollTop, scrollHeight, clientHeight } = element;
       const distanceToBottom = Math.abs(
-        scrollHeight - scrollTop - clientHeight
+        scrollHeight - scrollTop - clientHeight,
       );
       return distanceToBottom <= offset;
     },
-    [offset]
+    [offset],
   );
 
   const scrollToBottom = useCallback(
@@ -56,7 +56,7 @@ export function useAutoScroll(options: UseAutoScrollOptions = {}) {
       });
       userHasScrolled.current = false;
     },
-    [smooth]
+    [smooth],
   );
 
   const handleScroll = useCallback(() => {

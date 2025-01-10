@@ -8,14 +8,14 @@ import {
 import { SmileIcon } from "lucide-react";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
-import { useTheme } from "next-themes"
+import { useTheme } from "next-themes";
 
 interface EmojiPickerProps {
   onChange: (value: string) => void;
 }
 
 export const EmojiPicker = ({ onChange }: EmojiPickerProps) => {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
 
   return (
     <Popover>

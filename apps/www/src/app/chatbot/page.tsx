@@ -44,10 +44,10 @@ export default function Page() {
   const setInput = useChatStore((state) => state.setInput);
   const handleInputChange = useChatStore((state) => state.handleInputChange);
   const hasInitialAIResponse = useChatStore(
-    (state) => state.hasInitialAIResponse
+    (state) => state.hasInitialAIResponse,
   );
   const setHasInitialAIResponse = useChatStore(
-    (state) => state.setHasInitialAIResponse
+    (state) => state.setHasInitialAIResponse,
   );
   const [isLoading, setisLoading] = useState(false);
 
@@ -171,7 +171,7 @@ export default function Page() {
                                         "Action " +
                                           icon.label +
                                           " clicked for message " +
-                                          index
+                                          index,
                                       )
                                     }
                                   />
