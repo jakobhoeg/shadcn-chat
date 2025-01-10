@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import MessageLoading from "./message-loading";
-import { Button, ButtonProps } from "../button";
+import { Button, ButtonProps } from "@/components/ui/button";
 
 // ChatBubble
 const chatBubbleVariant = cva(
@@ -23,7 +23,7 @@ const chatBubbleVariant = cva(
       variant: "received",
       layout: "default",
     },
-  },
+  }
 );
 
 interface ChatBubbleProps
@@ -35,7 +35,7 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
     <div
       className={cn(
         chatBubbleVariant({ variant, layout, className }),
-        "relative group",
+        "relative group"
       )}
       ref={ref}
       {...props}
@@ -46,10 +46,10 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
               variant,
               layout,
             } as React.ComponentProps<typeof child.type>)
-          : child,
+          : child
       )}
     </div>
-  ),
+  )
 );
 ChatBubble.displayName = "ChatBubble";
 
@@ -102,12 +102,12 @@ const ChatBubbleMessage = React.forwardRef<
 >(
   (
     { className, variant, layout, isLoading = false, children, ...props },
-    ref,
+    ref
   ) => (
     <div
       className={cn(
         chatBubbleMessageVariants({ variant, layout, className }),
-        "break-words max-w-full whitespace-pre-wrap",
+        "break-words max-w-full whitespace-pre-wrap"
       )}
       ref={ref}
       {...props}
@@ -120,7 +120,7 @@ const ChatBubbleMessage = React.forwardRef<
         children
       )}
     </div>
-  ),
+  )
 );
 ChatBubbleMessage.displayName = "ChatBubbleMessage";
 
@@ -170,7 +170,6 @@ interface ChatBubbleActionWrapperProps
   className?: string;
 }
 
-// ChatBubbleActionWrapper
 const ChatBubbleActionWrapper = React.forwardRef<
   HTMLDivElement,
   ChatBubbleActionWrapperProps
@@ -182,7 +181,7 @@ const ChatBubbleActionWrapper = React.forwardRef<
       variant === "sent"
         ? "-left-1 -translate-x-full flex-row-reverse"
         : "-right-1 translate-x-full",
-      className,
+      className
     )}
     {...props}
   >

@@ -5,7 +5,7 @@ import { Info, Phone, Video } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
-import { ExpandableChatHeader } from "../ui/chat/expandable-chat";
+import { ExpandableChatHeader } from "@shadcn-chat/ui";
 
 interface ChatTopbarProps {
   selectedUser: UserData;
@@ -39,7 +39,7 @@ export default function ChatTopbar({ selectedUser }: ChatTopbarProps) {
             href="#"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
+              "h-9 w-9"
             )}
           >
             <icon.icon size={20} className="text-muted-foreground" />

@@ -1,8 +1,8 @@
 import { CornerDownLeft, Mic, Paperclip } from "lucide-react";
 import { Button } from "../ui/button";
-import { ChatInput } from "../ui/chat/chat-input";
+import { ChatInput } from "@shadcn-chat/ui";
 
-export const ChatInputExampleCode = `import { ChatInput } from "@/components/ui/chat/chat-input"
+export const ChatInputExampleCode = `import { ChatInput } from "@shadcn-chat/ui"
 
 <form
     className="relative rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring p-1"
