@@ -1,8 +1,8 @@
 import { CornerDownLeft, Mic, Paperclip } from "lucide-react";
 import { Button } from "../ui/button";
-import { ChatInput } from "../ui/chat/chat-input";
+import { ChatInput } from "@shadcn-chat/ui";
 
-export const ChatInputPreviewCode = `import { ChatInput } from "@/components/ui/chat/chat-input"
+export const ChatInputPreviewCode = `import { ChatInput } from "@shadcn-chat/ui"
 
 <ChatInput
   placeholder="Type your message here..."

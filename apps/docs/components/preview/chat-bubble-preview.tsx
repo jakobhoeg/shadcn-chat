@@ -4,8 +4,8 @@ import {
   ChatBubbleMessage,
   ChatBubbleAction,
   ChatBubbleActionWrapper,
-} from "../../components/ui/chat/chat-bubble";
-import { ChatMessageList } from "../../components/ui/chat/chat-message-list";
+} from "@shadcn-chat/ui";
+import { ChatMessageList } from "@shadcn-chat/ui";
 
 export const ChatBubblePreviewCode = `// Wrap with ChatMessageList
 <ChatMessageList>

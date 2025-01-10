@@ -3,15 +3,15 @@ import {
   ExpandableChatBody,
   ExpandableChatFooter,
   ExpandableChatHeader,
-} from "../ui/chat/expandable-chat";
-import { ChatMessageList } from "../ui/chat/chat-message-list";
+} from "@shadcn-chat/ui";
+import { ChatMessageList } from "@shadcn-chat/ui";
 import { Button } from "../ui/button";
 import {
   ChatBubble,
   ChatBubbleAvatar,
   ChatBubbleMessage,
-} from "../ui/chat/chat-bubble";
-import { ChatInput } from "../ui/chat/chat-input";
+} from "@shadcn-chat/ui";
+import { ChatInput } from "@shadcn-chat/ui";
 import { Send } from "lucide-react";
 
 export const ExpandableChatPreviewCode = `<ExpandableChat

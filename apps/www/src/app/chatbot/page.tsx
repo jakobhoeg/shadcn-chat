@@ -5,11 +5,10 @@ import { Button } from "@/components/ui/button";
 import {
   ChatBubble,
   ChatBubbleAction,
-  ChatBubbleAvatar,
   ChatBubbleMessage,
-} from "@/components/ui/chat/chat-bubble";
-import { ChatInput } from "@/components/ui/chat/chat-input";
-import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
+  ChatInput,
+  ChatMessageList,
+} from "@shadcn-chat/ui";
 import useChatStore from "@/hooks/useChatStore";
 import { AnimatePresence, motion } from "framer-motion";
 import {
