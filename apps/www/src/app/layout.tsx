@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import "@shadcn-chat/ui/styles.css";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -60,7 +61,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm flex">
+            <div className="z-10 border rounded-lg max-w-5xl w-full h-3/4 text-sm flex">
               {/* Page content */}
               {children}
             </div>

@@ -10,11 +10,11 @@ import {
   ChatBubble,
   ChatBubbleAction,
   ChatBubbleActionWrapper,
-} from "../ui/chat/chat-bubble";
-import { ChatMessageList } from "../ui/chat/chat-message-list";
+  ChatMessageList,
+  useAutoScroll,
+} from "@shadcn-chat/ui";
 import { DotsVerticalIcon, HeartIcon, Share1Icon } from "@radix-ui/react-icons";
 import { Forward, Heart } from "lucide-react";
-import { useAutoScroll } from "../ui/chat/hooks/useAutoScroll";
 
 interface ChatListProps {
   messages: Message[];

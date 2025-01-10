@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
 import { EmojiPicker } from "../emoji-picker";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { ChatInput } from "../ui/chat/chat-input";
+import { ChatInput } from "@shadcn-chat/ui";
 import useChatStore from "@/hooks/useChatStore";
 
 interface ChatBottombarProps {

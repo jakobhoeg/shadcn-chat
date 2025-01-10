@@ -4,11 +4,11 @@ import {
   ChatBubbleAvatar,
   ChatBubbleMessage,
   ChatBubbleAction,
-} from "../../components/ui/chat/chat-bubble";
-import { ChatMessageList } from "../../components/ui/chat/chat-message-list";
+} from "@shadcn-chat/ui";
+import { ChatMessageList } from "@shadcn-chat/ui";
 
-export const ChatBubbleAILayoutExampleCode = `import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage, ChatBubbleAction } from '@/components/ui/chat/chat-bubble'
-import { ChatMessageList } from '@/components/ui/chat/chat-message-list'
+export const ChatBubbleAILayoutExampleCode = `import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage, ChatBubbleAction } from '@shadcn-chat/ui'
+import { ChatMessageList } from '@shadcn-chat/ui'
 
 const messages = [
   {
@@ -94,7 +94,7 @@ export default function ChatBubbleAILayoutExample() {
                       icon={<Icon className="size-3" />}
                       onClick={() =>
                         console.log(
-                          "Action " + type + " clicked for message " + index,
+                          "Action " + type + " clicked for message " + index
                         )
                       }
                     />
