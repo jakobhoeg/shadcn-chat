@@ -14,7 +14,7 @@ Before contributing, ensure you have the following installed:
 Familiarity with the following tools is recommended:
 
 - Turborepo
-- Next.js
+- React and Next.js
 - semantic-release
 
 # Table of Contents
