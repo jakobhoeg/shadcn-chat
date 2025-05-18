@@ -48,6 +48,7 @@
     "node-fetch": "^2.6.7",
     "ora": "^5.4.1",
     "prompts": "^2.4.2",
+    "proxy-agent": "^6.5.0",
     "semantic-release": "^24.1.1",
     "type-fest": "^4.26.1"
   },
