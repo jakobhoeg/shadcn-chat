@@ -1,3 +1,6 @@
+> [!WARNING]
+> I am no longer actively maintaining this library. I suggest using either [this](https://ai-sdk.dev/elements/overview) or [this](https://www.prompt-kit.com/) library.
+
 [<img src="shadcn-preview.png">](https://shadcn-chat.vercel.app/)
 
 <h1 align="center">shadcn-chat</h1>
