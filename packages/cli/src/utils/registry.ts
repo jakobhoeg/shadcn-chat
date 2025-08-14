@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { ProxyAgent } from "proxy-agent";
 
 const REGISTRY_URL =
   process.env.COMPONENTS_REGISTRY_URL ||
@@ -6,7 +7,7 @@ const REGISTRY_URL =
 
 async function getRegistryData() {
   try {
-    const response = await fetch(REGISTRY_URL);
+    const response = await fetch(REGISTRY_URL, { agent: new ProxyAgent() });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
